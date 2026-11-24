@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Wooden O Bootcamp</title>
+<meta name="description" content="A twenty-day C2 English bootcamp: exam-format drills, 80/20 word lists with spaced review, and a passage of Shakespeare every day.">
+<meta name="theme-color" content="#6e0f22">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Wooden O">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta property="og:type" content="website">
+<meta property="og:title" content="The Wooden O: a C2 English bootcamp">
+<meta property="og:description" content="Twenty days of exam-format drills, 80/20 word lists and Shakespeare, from C1 towards C2.">
+<meta property="og:url" content="https://furkanork.github.io/cambridge/">
+<meta property="og:image" content="https://furkanork.github.io/cambridge/icons/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+/* VOICE everyday study, with the swagger of a playhouse
+   IDEA a playbill for the Globe: twenty days are the twenty bays of "this wooden O"; word lists are the prompt book
+   PICTURE the theatre seen from above; each bay fills with oxblood when its day is done
+   COLOUR limewash white ground, oxblood field, timber brown support, thatch gold for "today" and core words
+   TYPE IM Fell English (period print) for display and verse + Source Sans 3 for working text
+   LAYOUT laptop: oxblood band with the site's sections, then a sticky side column and the working view; phone: everything stacks */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#150b0d);--ink:light-dark(#1d1416,#f4ece8);--soft:light-dark(#6b5a55,#bfaea8);--ox:light-dark(#6e0f22,#8c1a30);--oxi:light-dark(#6e0f22,#f0a3b2);--oxt:light-dark(#f6e9eb,#2a1418);--wood:light-dark(#8a6a4f,#6d5340);--woodt:light-dark(#efe5dc,#2b211b);--gold:light-dark(#c8901a,#e3b245);--goldt:light-dark(#fbf0d6,#3a2d12);--line:light-dark(#e3d6d0,#3a2a2c);--ok:light-dark(#1f6b3a,#7fd19b)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{margin:0}
+html{scroll-padding-top:20px}
+body{background:var(--bg);color:var(--ink);font:17px/1.55 "Source Sans 3",system-ui,sans-serif;overflow-x:clip}
+h1,h2,h3,.verse{font-family:"IM Fell English",Georgia,serif;font-weight:400}
+a{color:var(--oxi)}
+.top{background:var(--ox);color:#fff;padding:clamp(22px,3.2vw,40px) max(5vw,16px) 0}
+.top .in{max-width:1240px;margin:0 auto}
+.hd{display:flex;flex-wrap:wrap;gap:12px 40px;align-items:end;justify-content:space-between}
+h1{font-size:clamp(36px,5vw,52px);line-height:1.05;letter-spacing:-.01em;margin:0}
+.top p{margin:6px 0 0;max-width:62ch;color:#f3dfe3}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chips span{border:1px solid #ffffff55;border-radius:999px;padding:4px 12px;font-size:14px;white-space:nowrap}
+nav.tabs{display:flex;gap:4px;margin-top:22px;overflow-x:auto;scrollbar-width:none}
+nav.tabs a{flex:none;color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px 10px 0 0;min-height:44px}
+nav.tabs a:hover{background:#ffffff1f}
+nav.tabs a[aria-current=page]{background:var(--bg);color:var(--oxi)}
+nav.tabs a:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.wrap{max-width:1240px;margin:0 auto;padding:clamp(20px,3vw,40px) max(5vw,16px) 60px}
+.two{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,4vw,56px)}
+.side{align-self:start}
+@media(min-width:900px){.side{position:sticky;top:20px}}
+.globe{width:100%;max-width:440px;display:block;margin:0 auto}
+.bay{cursor:pointer;stroke:var(--bg);stroke-width:3}
+.bay:focus{outline:none}.bay:focus-visible{stroke:var(--gold);stroke-width:5}
+.bay:hover{filter:brightness(1.08)}
+.globe text{pointer-events:none;font:600 16px "Source Sans 3",sans-serif}
+.acts{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:2px}
+.acts li{display:grid;grid-template-columns:4.2em minmax(0,1fr) auto;gap:10px;padding:7px 0;border-bottom:1px solid var(--line);font-size:15px}
+.acts b{font-family:"IM Fell English",serif;font-weight:400;font-size:17px;color:var(--oxi)}
+.acts span:last-child{color:var(--soft);white-space:nowrap;font-variant-numeric:tabular-nums}
+.meter{height:10px;background:var(--woodt);border-radius:6px;overflow:hidden;margin-top:14px}
+.meter i{display:block;height:100%;background:var(--ox);transition:width .4s}
+.note{font-size:14px;color:var(--soft);margin:10px 0 0}
+h2{font-size:clamp(32px,4vw,46px);line-height:1.05;margin:4px 0 10px;text-wrap:balance}
+.kick{color:var(--oxi);font-weight:700;font-size:15px}
+.focus{font-size:18px;margin:0 0 24px;max-width:64ch}
+section.blk{border-top:2px solid var(--ink);padding:16px 0 26px}
+.blk h3,h3{font-size:24px;margin:0 0 12px;line-height:1.1}
+.verse{background:var(--oxt);border-left:4px solid var(--ox);padding:18px 22px;font-size:21px;line-height:1.45;margin:0;white-space:pre-line;font-style:italic}
+.src{font-size:14px;color:var(--soft);margin:8px 0 10px}
+.gloss{margin:0;max-width:66ch}
+.ex{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ex>div{background:var(--woodt);border-radius:10px;padding:14px 16px}
+.ex b{display:block;font-size:18px;line-height:1.3}
+.ex em{display:inline-block;font-style:normal;font-size:13px;font-weight:700;color:var(--oxi);margin:4px 0 2px}
+.ex p{margin:4px 0 0;font-size:16px}
+.ex q{display:block;color:var(--soft);font-size:15px;margin-top:6px}
+.ex q::before,.ex q::after{content:""}
+.dr{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:12px}
+.dr p{margin:0 0 6px}
+.kw{display:inline-block;background:var(--ink);color:var(--bg);font-weight:700;font-size:14px;padding:2px 10px;border-radius:4px;margin:2px 0 8px;letter-spacing:.02em}
+.row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+input[type=text],input[type=search],textarea,select{font:16px/1.5 "Source Sans 3",sans-serif;color:var(--ink);background:var(--bg);border:1.5px solid var(--wood);border-radius:8px;padding:10px 12px;width:100%;min-height:44px}
+.row input{flex:1 1 220px;width:auto}
+.row select{width:auto}
+input:focus-visible,textarea:focus-visible,select:focus-visible,button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+button{font:600 16px "Source Sans 3",sans-serif;min-height:44px;padding:0 18px;border-radius:8px;border:1.5px solid var(--oxi);background:var(--bg);color:var(--oxi);cursor:pointer}
+button:hover{background:var(--oxt)}
+button:disabled{opacity:.45;cursor:default}
+button.main{background:var(--ox);color:#fff;border-color:var(--ox)}
+button.main:hover{filter:brightness(1.12);background:var(--ox)}
+button.sm{min-height:36px;padding:0 12px;font-size:15px}
+.fb{margin:8px 0 0;font-size:15px}
+.fb.ok{color:var(--ok);font-weight:600}
+.fb s{text-decoration:none;font-weight:700}
+textarea{min-height:170px;resize:vertical}
+.wc{font-size:14px;color:var(--soft);margin-top:6px}
+.nav{display:flex;flex-wrap:wrap;gap:10px;justify-content:space-between;align-items:center;border-top:2px solid var(--ink);padding-top:18px}
+.tally{font-weight:700;color:var(--oxi)}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th{text-align:left;font-size:14px;color:var(--soft);font-weight:600;border-bottom:2px solid var(--ink);padding:8px 10px}
+td{border-bottom:1px solid var(--line);padding:10px;vertical-align:top}
+td.w{font-weight:700;white-space:nowrap}
+td.e{color:var(--soft)}
+td.c{text-align:center;width:4em}
+input[type=checkbox]{width:22px;height:22px;accent-color:var(--ox);cursor:pointer}
+.core{display:inline-block;background:var(--gold);color:#1d1416;font-size:12px;font-weight:700;border-radius:4px;padding:0 6px;margin-left:6px;vertical-align:2px}
+tr.known td.w{color:var(--soft);font-weight:600}
+.menu{display:grid;gap:6px}
+.menu button{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;text-align:left;padding:10px 14px;height:auto;border-color:var(--line);color:var(--ink);font-weight:600}
+.menu button[aria-pressed=true]{border-color:var(--ox);background:var(--oxt)}
+.menu small{color:var(--soft);font-weight:400;font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu .m{grid-column:1/-1;height:5px;background:var(--woodt);border-radius:3px;overflow:hidden}
+.menu .m i{display:block;height:100%;background:var(--ox)}
+.pareto{background:var(--goldt);border-radius:12px;padding:16px 18px;margin-bottom:18px}
+.pareto p{margin:4px 0 0;font-size:15px}
+.card{border:2px solid var(--ox);border-radius:14px;padding:22px;margin:0 0 20px;background:var(--oxt)}
+.card .big{font-family:"IM Fell English",serif;font-size:clamp(30px,4vw,40px);line-height:1.1;margin:6px 0 10px}
+.card .gap{font-size:20px;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.opts button.right{background:var(--ok);border-color:var(--ok);color:#fff}
+.opts button.wrong{text-decoration:line-through;opacity:.6}
+.grid3{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.grid3>div{background:var(--woodt);border-radius:10px;padding:14px 16px}
+.grid3 b{display:block;font-size:18px;line-height:1.3}
+.grid3 em{font-style:normal;font-size:13px;font-weight:700;color:var(--oxi)}
+.grid3 p{margin:4px 0 0;font-size:16px}
+.grid3 .q{color:var(--soft);font-size:15px}
+.prose{max-width:70ch}
+.prose h3{margin-top:28px}
+.steps{list-style:none;padding:0;margin:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:5.5em minmax(0,1fr);gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.steps b{font-family:"IM Fell English",serif;font-weight:400;font-size:22px;color:var(--oxi);white-space:nowrap}
+.scroll{overflow-x:auto}
+.hint{color:var(--soft);font-size:15px}
+.empty{padding:20px;color:var(--soft);text-align:center;border:1px dashed var(--line);border-radius:10px}
+input[type=number]{font:16px "Source Sans 3",sans-serif;color:var(--ink);background:var(--bg);border:1.5px solid var(--wood);border-radius:8px;padding:10px 12px;width:100%;min-height:44px;margin-top:4px;font-variant-numeric:tabular-nums}
+input[type=number]:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.focusbox:not(:empty){background:var(--goldt);border-radius:10px;padding:12px 14px;margin-top:14px;font-size:15px}
+.focusbox b{display:block}
+.duebox{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between;border:2px solid var(--ox);border-radius:12px;padding:12px 14px;margin-bottom:16px}
+.duebox b{font-family:"IM Fell English",serif;font-weight:400;font-size:32px;color:var(--oxi);line-height:1}
+.diag{background:var(--woodt);border-radius:14px;padding:20px;margin:0 0 28px}
+.dgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.dgrid label{font-size:15px;font-weight:600}
+.sk{display:grid;grid-template-columns:8.5em minmax(0,1fr) 3.5em;gap:10px;align-items:center;margin:8px 0;font-size:15px}
+.sk .t{position:relative;height:18px;background:var(--bg);border-radius:4px}
+.sk .t i{position:absolute;inset:0 auto 0 0;background:var(--wood);border-radius:4px}
+.sk.weak .t i{background:var(--ox)}
+.sk .t s{position:absolute;top:-4px;bottom:-4px;width:2px;background:var(--gold)}
+.sk span:last-child{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.aiout{white-space:pre-wrap;background:var(--oxt);border-radius:10px;padding:14px 16px;margin-top:12px;font-size:16px}
+.aiout:empty{display:none}
+button.on{background:var(--ox);color:#fff}
+.marks{display:inline-flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.rec{color:var(--oxi);font-weight:700;font-size:14px}
+.timer{position:sticky;top:0;z-index:2;display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:var(--ox);color:#fff;border-radius:0 0 12px 12px;padding:10px 16px;margin-bottom:18px}
+.timer b{font-family:"IM Fell English",serif;font-weight:400;font-size:28px;font-variant-numeric:tabular-nums}
+.timer button{margin-left:auto;background:#fff;color:var(--ox);border-color:#fff}
+.forms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.opts button.on{background:var(--ox);color:#fff;border-color:var(--ox)}
+summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+[hidden]{display:none!important}
+@media(max-width:899px){.two{grid-template-columns:minmax(0,1fr)}.globe{max-width:330px}.acts{max-width:440px;margin-inline:auto}.menu{grid-auto-flow:column;grid-auto-columns:minmax(200px,1fr);overflow-x:auto;padding-bottom:6px}}
+@media(max-width:600px){.ex{grid-template-columns:minmax(0,1fr)}.opts{grid-template-columns:minmax(0,1fr)}.verse{font-size:19px;padding:14px 16px}table{font-size:15px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0;text-align:left;width:auto}.stack td::before{content:attr(data-l);color:var(--soft);font-size:13px;font-weight:600;flex:none;width:6.5em}.stack td.w{white-space:normal}}
+@media(prefers-reduced-motion:reduce){.meter i{transition:none}}
+</style>
+</head>
+<body>
+<header class="top"><div class="in">
+  <div class="hd">
+    <div>
+      <h1>The Wooden O</h1>
+      <p>A twenty-day bootcamp from a strong C1 towards C2: precision, structure, idiom, argument and style, each day staged around a passage of Shakespeare, with 80/20 word lists to back it up.</p>
+    </div>
+    <div class="chips"><span>20 days · 5 acts</span><span>9 word lists · 205 items</span><span>About 60–75 min a day</span></div>
+  </div>
+  <nav class="tabs" aria-label="Sections">
+    <a href="#bootcamp" data-v="bootcamp">Bootcamp</a>
+    <a href="#words" data-v="words">80/20 word lists</a>
+    <a href="#phrases" data-v="phrases">Phrasebook</a>
+    <a href="#checkup" data-v="checkup">Check-up</a>
+    <a href="#exam" data-v="exam">C2 exam map</a>
+    <a href="#method" data-v="method">How to study</a>
+  </nav>
+</div></header>
+
+<div class="wrap">
+  <div id="v-bootcamp" class="two">
+    <aside class="side">
+      <svg class="globe" id="globe" viewBox="0 0 400 400" role="group" aria-label="Twenty days as the bays of a theatre"></svg>
+      <ul class="acts" id="acts"></ul>
+      <div class="meter" aria-hidden="true"><i id="bar"></i></div>
+      <p class="note" id="prog"></p>
+      <div class="focusbox" id="focusnote"></div>
+      <p class="note savest"></p>
+      <p class="note">Your 191 sits in the Cambridge C1 band (180–199); C2 starts at 200. <a href="#checkup">Take the check-up</a> before day 1 and after day 20 to measure your progress.</p>
+    </aside>
+    <article id="scene" aria-live="polite"></article>
+  </div>
+
+  <div id="v-words" class="two" hidden>
+    <aside class="side">
+      <div class="pareto"><b>The 80/20 rule, applied</b>
+        <p>A small core of vocabulary does most of the work at C2: words that appear across every topic, and chunks examiners reward. Each list is ordered by how much it pays back. The first fifth, marked <span class="core">core</span>, comes first; learn those before anything else.</p></div>
+      <div class="duebox"><div><b id="duen">0</b> <span id="duet">cards due today</span></div><button class="main" id="rev">Review due cards</button></div>
+      <div class="menu" id="menu"></div>
+      <p class="note" id="wtotal"></p>
+    </aside>
+    <section id="wlist"></section>
+  </div>
+
+  <div id="v-phrases" hidden>
+    <h2>Phrasebook</h2>
+    <p class="focus">Every expression from the twenty days in one place. Phrases Shakespeare coined or made famous are marked with their play. Where the phrase is older than Shakespeare, the note says so.</p>
+    <div class="row" style="margin-bottom:18px"><input type="search" id="pq" placeholder="Search phrases, meanings or plays" aria-label="Search phrasebook"><select id="pf" aria-label="Filter phrases"><option value="all">All phrases</option><option value="shk">Shakespeare (coined or made famous)</option><option value="mod">Modern C2 English</option></select></div>
+    <p class="hint" id="pcount"></p>
+    <div class="grid3" id="plist"></div>
+  </div>
+
+  <div id="v-checkup" hidden>
+    <h2>Check-up: measure your progress</h2>
+    <p class="focus">Two short tests in the exam's own formats: 6 key word transformations (12 marks) and 10 vocabulary questions (10 marks), 20 minutes. Take Form A before day 1 and Form B after day 20. The forms are built to match, but they are not calibrated by Cambridge, so read the change as a guide, not a scale score.</p>
+    <div id="cbox"></div>
+  </div>
+
+  <div id="v-exam" hidden>
+    <h2>Where the bootcamp meets the C2 exam</h2>
+    <p class="focus">C2 Proficiency has four papers. Each row shows what a part tests and which days and word lists train it. Click any link to go straight there.</p>
+    <section class="diag">
+      <h3>Your skill scores</h3>
+      <p class="hint" style="margin:-4px 0 14px">Your Statement of Results lists a score for each skill on the Cambridge English Scale. Enter them and the bootcamp marks the days and lists that target your two weakest skills.</p>
+      <form id="diagf" class="dgrid">
+        <label for="s-reading">Reading<input type="number" id="s-reading" min="80" max="230" inputmode="numeric"></label>
+        <label for="s-uoe">Use of English<input type="number" id="s-uoe" min="80" max="230" inputmode="numeric"></label>
+        <label for="s-writing">Writing<input type="number" id="s-writing" min="80" max="230" inputmode="numeric"></label>
+        <label for="s-listening">Listening<input type="number" id="s-listening" min="80" max="230" inputmode="numeric"></label>
+        <label for="s-speaking">Speaking<input type="number" id="s-speaking" min="80" max="230" inputmode="numeric"></label>
+        <div class="row" style="align-self:end"><button class="main" type="submit">Set my focus</button><button type="button" id="dclear">Clear</button></div>
+      </form>
+      <div id="diagout"></div>
+    </section>
+    <div class="scroll"><table class="stack" id="examt"><thead><tr><th>Paper</th><th>Part</th><th>What it tests</th><th>Train with</th></tr></thead><tbody></tbody></table></div>
+    <p class="note">Timings: Reading and Use of English 1 h 30; Writing 1 h 30; Listening about 40 min; Speaking 16 min, taken in pairs. Check the current handbook on the Cambridge English website before you book.</p>
+  </div>
+
+  <div id="v-method" hidden>
+    <div class="two">
+      <div class="prose">
+        <h2>How to study for C2</h2>
+        <p class="focus">Your vocabulary is already strong; the gap to C2 is mostly about control. That means choosing the exact word, building flexible sentences and knowing when an idiom fits. This plan spends your time where that gap is.</p>
+        <h3>The 80/20 of vocabulary</h3>
+        <p><b>Learn chunks, not single words.</b> "Pose a threat" is one item, not two. Examiners notice collocation far more than rare words.</p>
+        <p><b>Core before long tail.</b> Each word list puts its most useful fifth first. Master those across all nine lists before you go deeper into any one of them.</p>
+        <p><b>Use it within 48 hours.</b> Recognising a word is not the same as owning it. Put each new item into a sentence of your own in that day's writing task.</p>
+        <p><b>Review on a schedule.</b> Go back to new items after 1, 3, 7 and 21 days. The word lists do this for you: every item you meet joins a review queue, comes back after 1, 3, 7 and 21 days, and drops back to the start if you miss it. Clear "Review due cards" each day and the schedule takes care of itself.</p>
+        <h3>Reading Shakespeare without pain</h3>
+        <p>Read the passage aloud twice: once for sense, once for rhythm. Then read the note. Don't translate word by word; look for the move the speaker makes, such as a contrast, a list of three or a slow build. Free annotated texts are on the Folger Shakespeare Library website (folger.edu).</p>
+        <h3>A week, end to end</h3>
+        <p>Do days on Monday to Friday, four days per act. On Saturday, redo any drill you missed and take one gap quiz per list. On Sunday, read one long article (a Guardian long read, The Economist, the London Review of Books) and note five chunks from it.</p>
+      </div>
+      <aside class="side">
+        <h3>A full day, about 70 minutes</h3>
+        <ul class="steps">
+          <li><b>5 min</b><span>Review due cards in the word lists</span></li>
+          <li><b>8 min</b><span>The passage, read aloud twice, then the note</span></li>
+          <li><b>7 min</b><span>Four expressions and today's six words: say an example of your own for each</span></li>
+          <li><b>8 min</b><span>Three drills, answered before you check</span></li>
+          <li><b>15 min</b><span>The writing or speaking task, using at least three new items, then Claude's feedback</span></li>
+          <li><b>2 min</b><span>Mark the day done and the words you now own</span></li>
+        </ul>
+        <p class="note">Short on time? Drills and writing matter most; the passage can wait for the weekend.</p>
+        <h3 style="margin-top:28px">Your data</h3>
+        <p class="note savest" style="margin-top:0"></p>
+        <p class="hint">For extra safety, or to move to a browser where you aren't signed in, copy a backup and keep it somewhere safe. To restore, paste it in the box and press Restore.</p>
+        <div class="row"><button id="bcopy">Copy backup</button><button id="brest">Restore from backup</button></div>
+        <textarea id="bbox" aria-label="Backup text" placeholder="Paste a backup here to restore it." style="min-height:90px;margin-top:10px"></textarea>
+        <p class="note" id="bmsg" aria-live="polite"></p>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<script>
+{
+const ACTS=["Precision","Structure","Figurative English","Argument","Style"];
+const D=[
+{t:"Words that keep company",f:"At C2, examiners reward collocation more than rare words. You don't \"make a big effort\"; you \"make a concerted effort\". Today: hear which words travel together.",
+ v:"What a piece of work is a man! How noble in reason, how infinite in faculty! In form and moving how express and admirable! In action how like an angel, in apprehension how like a god!",s:"Hamlet, Act 2, Scene 2",
+ g:"Hamlet stacks matched pairs: noble in reason, infinite in faculty. Each adjective is chosen for its noun. \"Express\" here means exact, finely made; \"apprehension\" means understanding.",
+ x:[["a foregone conclusion","Othello","a result that is certain before it happens","Given the polls, the result was a foregone conclusion."],["in my mind's eye","Hamlet","in my imagination or memory","In my mind's eye I can still see my grandmother's kitchen."],["make a concerted effort","","a determined effort, often by several people together","The school made a concerted effort to cut waste."],["a far cry from","","very different from","The final draft is a far cry from the rough notes."]],
+ d:[["Everyone knew from the outset that she would be appointed.","CONCLUSION","That she would be appointed ___ the outset.",["was a foregone conclusion from"],[["foregone conclusion"],["from"]]],["The finished building bears little resemblance to the architect's first sketches.","CRY","The finished building ___ the architect had first sketched.",["is a far cry from what"],[["far cry from"],["what"]]],["The team tried very hard, together, to reduce costs.","CONCERTED","A ___ by the team to reduce costs.",["concerted effort was made"],[["concerted effort"],["was made"]]]],
+ k:"Describe a place you know in about 120 words, using at least six strong collocations (bitterly cold, a vivid recollection, painstakingly restored...)."},
+{t:"Shades of meaning",f:"Near-synonyms are where C1 writers slip. The words look interchangeable and are not; one wrong choice tells the examiner more than ten right ones.",
+ v:"What's in a name? That which we call a rose\nBy any other word would smell as sweet.",s:"Romeo and Juliet, Act 2, Scene 2 (usually quoted as \"by any other name\")",
+ g:"Juliet argues that a label changes nothing. In English vocabulary it changes everything: \"slim\" and \"skinny\" describe the same body and pass opposite verdicts on it.",
+ x:[["disinterested / uninterested","","impartial, with nothing to gain / simply not interested","We need a disinterested judge, not an uninterested one."],["flout / flaunt","","openly break a rule / show something off","He flouted the dress code and flaunted his new watch."],["militate against / mitigate","","make something less likely / make it less severe","Fatigue militates against good decisions; rest mitigates the damage."],["reticent / reluctant","","unwilling to say much / unwilling to do something","She was reticent about her past and reluctant to be interviewed."]],
+ d:[["Several drivers openly ignored the new speed limit.","FLOUTED","The new speed limit ___ several drivers.",["was openly flouted by","was flouted openly by"],[["flouted"],["was","by"]]],["His lack of experience may reduce his chances of promotion.","MILITATE","His lack of experience ___ being promoted.",["may militate against him","may militate against his","might militate against his","might militate against him","could militate against his","could militate against him"],[["militate against"],["him","his"]]],["She didn't want to say much about her past.","RETICENT","She ___ her past.",["was reticent about","was rather reticent about","was very reticent about"],[["reticent"],["about"]]]],
+ k:"Choose three of today's pairs. For each, write one sentence where swapping the words would change the meaning or create an error."},
+{t:"Goodbye to \"very\"",f:"\"Very tired\" is B2. \"Utterly exhausted\", \"bitterly disappointed\", \"highly unlikely\": C2 English picks the intensifier that belongs to its adjective, and the pairs are fixed.",
+ v:"Now is the winter of our discontent\nMade glorious summer by this sun of York.",s:"Richard III, Act 1, Scene 1",
+ g:"Richard opens the play with a pun (sun / son of York) and a precise contrast: not \"a bad time\" but the winter of discontent, turned glorious summer. Every word is the strongest available, and none is \"very\".",
+ x:[["the winter of our discontent","Richard III","a period of hardship and unrest","Journalists called the strikes of 1978–79 a winter of discontent."],["bitterly disappointed","","extremely let down","The fans were bitterly disappointed by the draw."],["highly unlikely","","almost certainly not going to happen","It is highly unlikely that the shop is still open."],["painfully aware","","conscious of something uncomfortable","I was painfully aware of my accent."]],
+ d:[["I realise, uncomfortably, how little time we have.","PAINFULLY","I am ___ how little time we have.",["painfully aware of"],[["painfully aware"],["of"]]],["It is very improbable that the plan will work.","HIGHLY","The plan ___ work.",["is highly unlikely to"],[["highly unlikely"],["is","to"]]],["The fans felt extremely let down by the result.","BITTERLY","The result left ___.",["the fans bitterly disappointed"],[["the fans"],["bitterly disappointed"]]]],
+ k:"Take a paragraph you wrote recently. Replace every \"very\", \"really\" and \"so\" with a fixed intensifier pair from the word lists."},
+{t:"Turning sentences around",f:"Inversion after negative and restrictive openers (Little did I know, Not until, Under no circumstances) is the clearest signal of C2 grammar. Use it twice in an essay, not ten times.",
+ v:"Tomorrow, and tomorrow, and tomorrow,\nCreeps in this petty pace from day to day\nTo the last syllable of recorded time...\nIt is a tale\nTold by an idiot, full of sound and fury,\nSignifying nothing.",s:"Macbeth, Act 5, Scene 5",
+ g:"The repetition slows the line to the speed of despair. Word order is meaning: put the weight at the start or the end of a line, or a sentence, and the reader feels it.",
+ x:[["full of sound and fury","Macbeth","loud and dramatic but meaning nothing","The debate was full of sound and fury and settled nothing."],["the be-all and end-all","Macbeth","the single most important thing","Grades are not the be-all and end-all of school."],["Little did I know","","formal opener for a truth you only learned later","Little did I know that the stranger was my new boss."],["Not until ... did ...","","stresses how late something happened","Not until the lights came up did we see the damage."]],
+ d:[["I had no idea that she was the manager.","LITTLE","___ that she was the manager.",["little did i know","little did i realise","little did i realize","little did i suspect"],[["little did"],["i know","i realise","i realize","i suspect"]]],["We didn't notice the mistake until the next morning.","UNTIL","Not ___ notice the mistake.",["until the next morning did we","until the following morning did we"],[["until the next morning","until the following morning"],["did we"]]],["You must not leave the building under any circumstances.","NO","Under ___ leave the building.",["no circumstances must you","no circumstances are you to","no circumstances should you"],[["no circumstances"],["must you","are you to","should you"]]]],
+ k:"Take a paragraph you have already written and rewrite it with exactly two inversions. Read both versions aloud: which sounds more natural, and why?"},
+{t:"Balance and emphasis",f:"Cleft sentences (What struck me was..., It was only when... that...) let you choose which idea gets the spotlight. Antithesis does the same in rhetoric.",
+ v:"Not that I loved Caesar less, but that I loved Rome more.",s:"Julius Caesar, Act 3, Scene 2 (Brutus)",
+ g:"One line, two perfectly balanced halves. A modern cleft does the same job: \"It wasn't Caesar I loved less; it was Rome I loved more.\"",
+ x:[["What struck me most was...","","pseudo-cleft: puts the key point last, where it lands","What struck me most was how quiet the city had become."],["It was only when ... that ...","","cleft that stresses the moment of realisation","It was only when I left home that I understood my parents."],["it's Greek to me","Julius Caesar","I can't understand it at all","The tax form was all Greek to me."],["All I'm saying is...","","limits your claim and makes it firmer","All I'm saying is that we should check the figures."]],
+ d:[["Her patience impressed me more than anything else.","WHAT","___ her patience.",["what impressed me most was","what impressed me more than anything else was","what impressed me more than anything was"],[["what impressed me"],["most was","more than anything was","more than anything else was"]]],["I only understood the plot when I reread the last chapter.","UNTIL","It ___ the last chapter that I understood the plot.",["was not until i reread","wasn't until i reread","was not until i had reread","wasn't until i had reread"],[["not until"],["i reread","i had reread"]]],["I couldn't understand a word of the lecture.","GREEK","The lecture ___ me from start to finish.",["was all greek to","was greek to"],[["greek"],["was","to"]]]],
+ k:"Write a 100-word speech defending an unpopular decision, built on one antithesis and two cleft sentences."},
+{t:"Conditionals without if",f:"C2 writers rarely need \"if\". But for, Were it not for, Had I known, Should you need: each is more compact and more formal.",
+ v:"To be, or not to be, that is the question:\nWhether 'tis nobler in the mind to suffer\nThe slings and arrows of outrageous fortune,\nOr to take arms against a sea of troubles\nAnd by opposing end them.",s:"Hamlet, Act 3, Scene 1",
+ g:"The whole soliloquy is one long hypothesis: whether it is nobler to endure or to resist. Note the mixed metaphor, taking arms against a sea, which Shakespeare gets away with and you shouldn't.",
+ x:[["the slings and arrows of fortune","Hamlet","the misfortunes life throws at you","She bore the slings and arrows of fortune with humour."],["But for ...","","if it hadn't been for","But for the rain, the match would have been a classic."],["Were it not for ...","","formal: if it were not for","Were it not for her notes, the project would collapse."],["Should you need ...","","formal: if you need","Should you need anything further, do get in touch."]],
+ d:[["I would never have passed without her help.","BUT","___ never have passed.",["but for her help i would","but for her help i'd"],[["but for her help"],["i would","i d"]]],["If you happen to need further help, contact the office.","SHOULD","___ further help, contact the office.",["should you happen to need","should you happen to require"],[["should you"],["happen to need","happen to require"]]],["We only finished on time because the team worked overtime.","HAD","___ overtime, we wouldn't have finished on time.",["had the team not worked","had the team not been working"],[["had the team"],["not worked","not been working"]]]],
+ k:"About 150 words: if you could relive one year of your life. Use three different conditional forms, none of them starting with \"if\"."},
+{t:"Packing more into a sentence",f:"Participle clauses (Having finished..., Not knowing..., Given that...) join ideas without a string of \"and\"s and \"because\"s. They are the difference between a list and a sentence.",
+ v:"How sharper than a serpent's tooth it is\nTo have a thankless child!",s:"King Lear, Act 1, Scene 4",
+ g:"Lear holds back the real subject (to have a thankless child) until the end of the sentence, after the image. English does this all the time: \"It is worth noting that...\". The pain lands last.",
+ x:[["more sinned against than sinning","King Lear","treated worse than you treated others","In the divorce, he felt more sinned against than sinning."],["Having + past participle","","shows that one action finished before another","Having read the reviews, I chose another hotel."],["Not knowing ...","","gives a reason through a negative participle","Not knowing the way, we asked a stranger."],["Given that ...","","considering the fact that","Given that it's raining, we'll stay in."]],
+ d:[["The report was finished, so she went home.","HAVING","The report ___, she went home.",["having been finished","having been completed","having been done"],[["having been"],["finished","completed","done"]]],["Because I didn't know the way, I asked a stranger.","KNOWING","___ to go, I asked a stranger.",["not knowing which way","not knowing where"],[["not knowing"],["which way","where"]]],["He was treated far worse than he treated others.","SINNED","He was ___ sinning.",["more sinned against than","far more sinned against than","much more sinned against than"],[["sinned against"],["more"]]]],
+ k:"Write six short sentences about your morning. Then combine them into two sentences using participle clauses."},
+{t:"Saying how sure you are",f:"Hedging is not weakness. C2 writing calibrates certainty: it would seem, arguably, there is a case to be made, by no means.",
+ v:"Neither a borrower nor a lender be,\nFor loan oft loses both itself and friend...\nThis above all: to thine own self be true.",s:"Hamlet, Act 1, Scene 3 (Polonius)",
+ g:"Polonius is a pompous old man who speaks only in absolutes, and the play laughs at him. A C2 essay does the opposite: every claim carries exactly the certainty the evidence allows.",
+ x:[["to thine own self be true","Hamlet","stay faithful to who you are","Whatever you choose, to thine own self be true."],["There is a case to be made for ...","","a reasonable argument exists for","There is a case to be made for shorter school days."],["It would seem that ...","","cautious: the evidence suggests","It would seem that the plan was rushed."],["by no means","","not at all (strong, formal)","The outcome is by no means certain."]],
+ d:[["Apparently, the decision was made in haste.","SEEM","It ___ in haste.",["would seem that the decision was made","would seem the decision was made","may seem that the decision was made"],[["would seem","may seem","does seem"],["the decision was made"]]],["People could reasonably argue for a four-day week.","CASE","There ___ for a four-day week.",["is a case to be made","is a case to be argued"],[["is a case"],["to be made","to be argued"]]],["Nobody can say that the results are conclusive.","MEANS","The results ___ conclusive.",["are by no means"],[["by no means"],["are"]]]],
+ k:"Rewrite \"Social media is ruining teenagers\" three times: cautious, balanced and emphatic. Keep each under 40 words."},
+{t:"Small words, big moves",f:"Phrasal verbs at C2 are formal and precise: bear out, gloss over, stave off, hinge on, play down. The particle carries the movement of the idea.",
+ v:"Be not afraid of greatness. Some are born great, some achieve greatness, and some have greatness thrust upon 'em.",s:"Twelfth Night, Act 2, Scene 5",
+ g:"Three verbs, three ways of arriving at the same place: being born to it, earning it, having it pushed on you. Swap one verb and the whole social comment changes.",
+ x:[["have greatness thrust upon you","Twelfth Night","be given importance you didn't seek","He never wanted to lead; it was thrust upon him."],["gloss over","","mention briefly to hide a problem","The report glosses over the cost."],["stave off","","keep something bad away for a while","A loan staved off bankruptcy for a year."],["bear out","","confirm that something is true","The data bear out our suspicions."]],
+ d:[["The data confirm what we suspected.","BORNE","Our suspicions ___ the data.",["have been borne out by","are borne out by","were borne out by"],[["have been","are","were"],["borne out by"]]],["The minister barely mentioned the scandal in her speech.","GLOSSED","The scandal ___ the minister in her speech.",["was glossed over by"],[["glossed over"],["was","by"]]],["They ate snacks so they wouldn't feel hungry before dinner.","STAVE","They ate snacks ___ until dinner.",["to stave off hunger","in order to stave off hunger","so as to stave off hunger","to stave off their hunger"],[["stave off"],["hunger","their hunger"]]]],
+ k:"Write a short news report using five of: bear out, gloss over, stave off, hinge on, play down, iron out, rule out."},
+{t:"Shakespeare in your mouth",f:"You already speak Shakespeare. Dozens of everyday idioms first appear, or first became famous, in his plays. Use them lightly and they sound natural, not quoted.",
+ v:"O, beware, my lord, of jealousy;\nIt is the green-eyed monster which doth mock\nThe meat it feeds on.",s:"Othello, Act 3, Scene 3 (Iago)",
+ g:"Iago warns Othello against jealousy at the very moment he is planting it. Jealousy \"mocks the meat it feeds on\": it torments the person it lives inside.",
+ x:[["the green-eyed monster","Othello","jealousy","When her sister got the part, the green-eyed monster woke up."],["wear your heart on your sleeve","Othello","show your feelings openly","He wears his heart on his sleeve, which makes him easy to read."],["a wild-goose chase","Romeo and Juliet","a hopeless, pointless search","The directions sent us on a wild-goose chase."],["eat someone out of house and home","Henry IV, Part 2","eat so much they can't afford it","Two teenage boys can eat you out of house and home."]],
+ d:[["He never hides how he feels.","SLEEVE","He always ___.",["wears his heart on his sleeve"],[["wears his heart"],["on his sleeve"]]],["It was pointless to search the park, because my keys were in my bag.","CHASE","Searching the park for my keys ___, as they were in my bag.",["turned out to be a wild goose chase","proved to be a wild goose chase","was nothing but a wild goose chase","was a wild goose chase","proved a wild goose chase"],[["wild goose chase"],["turned out to be","proved to be","proved","nothing but"]]],["My sons eat so much that we can barely afford food.","HOME","My sons ___.",["are eating us out of house and home","eat us out of house and home"],[["eating us","eat us"],["out of house and home"]]]],
+ k:"Tell a 120-word story containing jealousy, a pointless search and someone who shows every feeling, without using the word \"jealous\"."},
+{t:"Proverbs and allusion",f:"Educated English constantly half-quotes: \"all that glitters\", \"a pound of flesh\". Recognising the allusion is reading at C2; using half of it, and trusting the reader with the rest, is writing at C2.",
+ v:"The quality of mercy is not strained;\nIt droppeth as the gentle rain from heaven\nUpon the place beneath. It is twice blest:\nIt blesseth him that gives and him that takes.",s:"The Merchant of Venice, Act 4, Scene 1 (Portia)",
+ g:"\"Strained\" means forced: mercy can't be squeezed out of someone, it falls freely like rain. Portia is arguing against Shylock's demand for his \"pound of flesh\", the play's other famous phrase.",
+ x:[["a pound of flesh","The Merchant of Venice","everything you are owed, however cruel to collect","The bank wanted its pound of flesh."],["all that glitters is not gold","The Merchant of Venice (\"glisters\"); the proverb is older","attractive things are not always valuable","The job looked perfect, but all that glitters is not gold."],["love is blind","The Merchant of Venice; the proverb is older (Chaucer)","people in love don't see faults","Love is blind: she thinks his jokes are funny."],["in a pickle","The Tempest; the phrase is older","in a difficult situation","We were in a pickle after missing the last bus."]],
+ d:[["He insisted on getting everything he was owed, however cruel it was.","FLESH","He was determined ___, however cruel it was.",["to have his pound of flesh","to get his pound of flesh","to take his pound of flesh"],[["to have","to get","to take"],["his pound of flesh"]]],["Attractive things are not always valuable.","GLITTERS","Not ___ gold.",["all that glitters is","everything that glitters is"],[["that glitters"],["all","everything"]]],["We were in a difficult situation after missing the last bus.","PICKLE","Missing the last bus ___.",["left us in a pickle","left us in a real pickle","landed us in a pickle","put us in a pickle","left us in quite a pickle"],[["left us","landed us","put us"],["in a pickle","in a real pickle","in quite a pickle"]]]],
+ k:"Write a 120-word fable that ends with one of today's proverbs as its moral, without quoting it in full."},
+{t:"Living metaphors",f:"Much of C2 vocabulary is quiet metaphor: harbour doubts, stem the tide, shoulder the blame, kindle interest. Notice the picture and you will remember the phrase.",
+ v:"All the world's a stage,\nAnd all the men and women merely players;\nThey have their exits and their entrances,\nAnd one man in his time plays many parts.",s:"As You Like It, Act 2, Scene 7",
+ g:"Jaques sustains one metaphor through seven ages of life, from the infant to old age. That is the skill: choose one picture and keep it consistent.",
+ x:[["all the world's a stage","As You Like It","life is a performance with roles we play","Interviews remind me that all the world's a stage."],["harbour doubts","","keep doubts privately, over time","I harboured doubts about the plan from the beginning."],["stem the tide of","","stop something from growing","New laws failed to stem the tide of fake news."],["shoulder the blame","","accept responsibility, often for others","The captain shouldered the blame for the defeat."]],
+ d:[["I've secretly had doubts about his plan for weeks.","HARBOURED","For weeks I ___ his plan.",["have harboured doubts about","have secretly harboured doubts about","had harboured doubts about","had secretly harboured doubts about"],[["harboured doubts"],["about"]]],["The government is trying to stop the growth of emigration.","TIDE","The government is attempting ___ emigration.",["to stem the tide of"],[["stem the tide"],["of"]]],["Nobody else would accept responsibility, so she did.","SHOULDERED","Since nobody else was willing to, she ___.",["shouldered the responsibility","shouldered the responsibility herself","shouldered the blame","shouldered responsibility"],[["shouldered"],["the responsibility","responsibility","the blame"]]]],
+ k:"Choose one extended metaphor (a journey, a battle, a garden) and sustain it through 120 words about learning a language."},
+{t:"Holding an argument together",f:"Beyond however and moreover: be that as it may, by the same token, insofar as, that said. Linkers are how a reader follows you, and how a speaker steers them.",
+ v:"Friends, Romans, countrymen, lend me your ears;\nI come to bury Caesar, not to praise him...\nFor Brutus is an honourable man;\nSo are they all, all honourable men.",s:"Julius Caesar, Act 3, Scene 2 (Mark Antony)",
+ g:"Antony repeats \"honourable\" until it means its opposite. Repetition and connection are the levers of persuasion: the same word, placed again and again, turns the crowd.",
+ x:[["lend me your ears","Julius Caesar","listen to me (playful, formal)","Lend me your ears for two minutes, please."],["be that as it may","","accepting a point but continuing anyway","It's expensive. Be that as it may, we need it."],["by the same token","","for the same reason, equally","If she gets a bonus, by the same token so should he."],["insofar as","","to the extent that","The theory is useful insofar as it predicts results."]],
+ d:[["The plan is expensive. Despite this, we should go ahead.","MAY","The plan is expensive but, ___, we should go ahead.",["be that as it may"],[["be that"],["as it may"]]],["She deserves a bonus, and for the same reason so does he.","TOKEN","She deserves a bonus and, ___, so does he.",["by the same token"],[["same"],["token"]]],["The theory is useful only to the extent that it explains the data.","INSOFAR","The theory is useful only ___ the data.",["insofar as it explains","insofar as it accounts for"],[["insofar as"],["it explains","it accounts for"]]]],
+ k:"Write a paragraph that concedes, contrasts and concludes, using a different linker for each move. Not allowed: however, moreover, in conclusion."},
+{t:"Two texts, one essay",f:"Writing Part 1 gives you two short texts and asks you to summarise and evaluate both in 240–280 words. The skill is paraphrase: their ideas, your words, with your verdict.",
+ v:"There are more things in heaven and earth, Horatio,\nThan are dreamt of in your philosophy.",s:"Hamlet, Act 1, Scene 5",
+ g:"Hamlet tells his scholarly friend that one way of seeing is never the whole story. That is the stance of a good evaluation: give each writer credit, then show what neither of them has seen.",
+ x:[["more things in heaven and earth","Hamlet","there is more to reality than one theory explains","Scientists admit there are more things in heaven and earth than their models allow."],["concur","","agree (formal)","Both writers concur that tourism has costs."],["take issue with","","disagree with, challenge","The second writer takes issue with this claim."],["the crux of the matter","","the most important point","The crux of the matter is who pays."]],
+ d:[["The two authors agree that tourism damages cities.","CONCUR","The two authors ___ damaging to cities.",["concur that tourism is"],[["concur that"],["tourism is"]]],["The second writer disagrees with the first writer's claim.","ISSUE","The second writer ___ the claim made by the first.",["takes issue with"],[["takes issue"],["with"]]],["The most important point is funding.","CRUX","Funding is ___.",["the crux of the matter","the crux of the issue"],[["crux"],["of the matter","of the issue"]]]],
+ k:"Find two short opinion pieces on one topic. Summarise each in a single sentence, in your own words, then evaluate both in 60 words."},
+{t:"The art of saying less",f:"Understatement and litotes (not without merit, no mean feat) are deeply British, and an examiner hears them as fluency. Wit is precision with a smile.",
+ v:"BEATRICE: I wonder that you will still be talking, Signior Benedick: nobody marks you.\nBENEDICK: What, my dear Lady Disdain! Are you yet living?",s:"Much Ado About Nothing, Act 1, Scene 1",
+ g:"\"Marks\" means pays attention to. Neither raises their voice: the insult is all in the politeness. Their sparring is the play's \"merry war\".",
+ x:[["no mean feat","","a considerable achievement","Finishing a marathon at seventy is no mean feat."],["not without its merits","","has some good points (cautious praise)","The proposal is not without its merits."],["a laughing stock","The Merry Wives of Windsor; the phrase is older","someone everyone laughs at","The failed launch made him a laughing stock."],["a merry war","Much Ado About Nothing","a playful, ongoing battle of wits","The two neighbours kept up a merry war over the hedge."]],
+ d:[["Climbing the mountain in winter was a great achievement.","FEAT","It was ___ the mountain in winter.",["no mean feat to climb"],[["no mean feat"],["to climb"]]],["The proposal has some good points.","WITHOUT","The proposal ___.",["is not without its merits","is not without merit","is not without its merit"],[["not without"],["merit","its merits","its merit"]]],["Everyone laughed at him after the failed launch.","STOCK","The failed launch ___.",["made him a laughing stock","turned him into a laughing stock"],[["made him","turned him into"],["a laughing stock"]]]],
+ k:"Write a polite but devastating 80-word reply to a colleague who took credit for your work. Understatement only, no insults."},
+{t:"Moving people",f:"Persuasive speaking and writing: the tricolon, the inclusive \"we\", the rhetorical question, and formal intensifiers (of the utmost importance, beyond question).",
+ v:"We few, we happy few, we band of brothers;\nFor he to-day that sheds his blood with me\nShall be my brother.",s:"Henry V, Act 4, Scene 3",
+ g:"Henry turns a small, frightened army into a privilege: \"few\" becomes \"happy few\" becomes \"band of brothers\". Three steps, each warmer than the last.",
+ x:[["once more unto the breach","Henry V","let's try again, with courage","Once more unto the breach: the exam is in a week."],["the game's afoot","Henry V","the action has started","Tickets are on sale; the game's afoot."],["of the utmost importance","","extremely important (formal)","Accuracy is of the utmost importance."],["beyond question","","certain, not open to doubt","Her commitment is beyond question."]],
+ d:[["It is essential that every member votes.","UTMOST","It is ___ every member votes.",["of the utmost importance that"],[["of the utmost"],["importance that"]]],["You won't regret supporting this project.","REGRETS","You will ___ this project.",["have no regrets about supporting","have no regrets supporting"],[["no regrets"],["about supporting","supporting"]]],["There is no doubt that we can win.","QUESTION","Our ability to win ___.",["is beyond question","is beyond all question","is not in question"],[["is"],["beyond question","beyond all question","not in question"]]]],
+ k:"Write a 150-word speech persuading classmates to join a cause. Include one tricolon, one rhetorical question and an inclusive \"we\"."},
+{t:"Brevity",f:"Concision through nominalisation: \"Because the shipment arrived late\" becomes \"The late arrival of the shipment\". Fewer words, more ideas per sentence.",
+ v:"Since brevity is the soul of wit,\nAnd tediousness the limbs and outward flourishes,\nI will be brief.",s:"Hamlet, Act 2, Scene 2 (Polonius)",
+ g:"\"Wit\" means intelligence. The joke is that Polonius then talks at length. Say the thing once, in the strongest form, and stop.",
+ x:[["brevity is the soul of wit","Hamlet","the cleverest thing is to be brief","Brevity is the soul of wit, so keep the toast short."],["method in his madness","Hamlet (\"there is method in't\")","a clear purpose behind odd behaviour","His filing looks chaotic, but there's method in his madness."],["the long and the short of it","The Merry Wives of Windsor (\"the short and the long of it\")","the essential point","The long and the short of it is that we're over budget."],["to cut a long story short","","to summarise","To cut a long story short, we missed the train."]],
+ d:[["Production stopped because the shipment arrived late.","ARRIVAL","Production was halted ___ the shipment.",["owing to the late arrival of","due to the late arrival of","because of the late arrival of","as a result of the late arrival of"],[["owing to","due to","because of","as a result of"],["the late arrival of"]]],["The committee decided to postpone the event, which surprised everyone.","DECISION","Everyone was surprised ___ the event.",["by the committee's decision to postpone"],[["by the committee"],["decision to postpone"]]],["His behaviour seems strange, but he has a clear purpose.","METHOD","Strange as his behaviour seems, there ___ madness.",["is method in his","is a method in his"],[["method"],["in his"]]]],
+ k:"Take 200 words you have written before and cut them to 120 without losing a single idea. Paste the result here."},
+{t:"Changing register",f:"Writing Part 2 asks for articles, letters, reports and reviews, each with its own register. C2 means moving between them on purpose: \"start\" or \"commence\", \"instead of\" or \"in lieu of\".",
+ v:"The better part of valour is discretion; in the which better part I have saved my life.",s:"Henry IV, Part 1, Act 5, Scene 4 (Falstaff)",
+ g:"Falstaff has just pretended to be dead to avoid a fight. He dresses up cowardice in a grand formal maxim, and the gap between the high register and the low act is the joke.",
+ x:[["discretion is the better part of valour","Henry IV, Part 1","it is wiser to be careful than brave","I didn't argue with the bouncer: discretion is the better part of valour."],["set your teeth on edge","Henry IV, Part 1","irritate you intensely","That ringtone sets my teeth on edge."],["in lieu of","","instead of (formal)","Staff receive extra leave in lieu of overtime pay."],["with regard to","","about, concerning (formal)","I am writing with regard to your recent order."]],
+ d:[["The plan is for the meeting to start at nine.","COMMENCE","The meeting ___ at nine.",["is scheduled to commence","is due to commence","is set to commence"],[["scheduled to","due to","set to"],["commence"]]],["Instead of paying staff for overtime, the company gives them extra leave.","LIEU","Staff are given extra leave ___ overtime.",["in lieu of payment for","in lieu of pay for","in lieu of being paid for"],[["in lieu of"],["payment for","pay for","being paid for"]]],["He decided it was wiser to stay quiet than to be brave.","DISCRETION","He ___ the better part of valour and stayed quiet.",["decided that discretion was","decided discretion was"],[["decided"],["discretion was"]]]],
+ k:"Write the same complaint twice, about 80 words each: first as a message to a friend, then as a formal email to the company."},
+{t:"Sound and stress",f:"English meaning lives in stress and rhythm. Reading verse aloud trains the ear that makes your speaking sound native, not merely correct.",
+ v:"Shall I compare thee to a summer's day?\nThou art more lovely and more temperate:\nRough winds do shake the darling buds of May,\nAnd summer's lease hath all too short a date.",s:"Sonnet 18",
+ g:"Iambic pentameter: five beats, da-DUM da-DUM. \"Summer's lease\" is a legal metaphor: summer is only renting the year, and the contract is short.",
+ x:[["the darling buds of May","Sonnet 18","the first fresh signs of summer","The garden was all darling buds of May."],["salad days","Antony and Cleopatra","youth, when you were inexperienced","In my salad days I thought I knew everything."],["have seen better days","As You Like It","be old and worn","The sofa has seen better days."],["too much of a good thing","As You Like It; the best-known early use","an excess of something pleasant","Even sunshine can be too much of a good thing."]],
+ d:[["When I was young and inexperienced, I made many mistakes.","SALAD","I made many mistakes ___ days.",["back in my salad","in my salad"],[["salad"],["in my"]]],["This old coat used to be in much better condition.","SEEN","This old coat ___ days.",["has seen better","has certainly seen better","has definitely seen better"],[["has"],["seen better"]]],["Eating chocolate every day is pleasant but excessive.","GOOD","Chocolate every day is a case of ___.",["too much of a good thing"],[["too much"],["of a good thing"]]]],
+ k:"Read Sonnet 18's opening aloud, tapping five stresses per line. Then write four lines of your own, in rough pentameter, about a season."},
+{t:"Curtain call",f:"Today you perform: one C2-style essay that draws on all nineteen days. Plan for structure, hedge your claims, vary your syntax, spend your expressions carefully.",
+ v:"Our revels now are ended. These our actors,\nAs I foretold you, were all spirits and\nAre melted into air, into thin air...\nWe are such stuff\nAs dreams are made on, and our little life\nIs rounded with a sleep.",s:"The Tempest, Act 4, Scene 1 (Prospero)",
+ g:"Prospero ends the play within the play and, many readers feel, Shakespeare says goodbye to the stage. \"Rounded\" means surrounded, completed: life is a short waking between two sleeps.",
+ x:[["vanish into thin air","The Tempest","disappear completely","The money seemed to vanish into thin air."],["such stuff as dreams are made on","The Tempest","the material of dreams; something unreal","A week without exams: such stuff as dreams are made on."],["a brave new world","The Tempest","a new era, often said with irony","Welcome to the brave new world of remote work."],["all's well that ends well","the play of that name; the proverb is older","a good ending makes up for the problems","We were late, but all's well that ends well."]],
+ d:[["The money disappeared completely without any explanation.","AIR","The money ___, and nobody could explain why.",["vanished into thin air","disappeared into thin air","simply vanished into thin air","melted into thin air"],[["vanished","disappeared","melted"],["into thin air"]]],["The ending was good, so the problems along the way don't matter.","WELL","The problems along the way don't matter: ___.",["all's well that ends well","all is well that ends well"],[["all is well"],["that ends well"]]],["As soon as the curtain fell, the audience rose to its feet.","SOONER","No ___ than the audience rose to its feet.",["sooner had the curtain fallen","sooner had the curtain come down"],[["sooner had"],["the curtain fallen","the curtain come down"]]]],
+ k:"Essay, 240–280 words: \"Is Shakespeare still worth reading for an advanced learner of English?\" Use at least ten expressions from this bootcamp, two inversions and one cleft sentence."}
+];
+
+const LISTS=[
+{id:"verbs",t:"Verbs that do the heavy lifting",why:"Academic and journalistic prose runs on these. Swap \"make worse\" for \"exacerbate\" and a sentence moves up a band.",items:[
+["undermine","weaken gradually, often from beneath","Constant criticism can undermine a child's confidence."],["exacerbate","make a bad situation worse","Cutting staff will only exacerbate the delays."],["alleviate","make a problem or pain less severe","The new bridge should alleviate traffic in the centre."],["foster","encourage something to develop","Good teachers foster curiosity."],["entail","involve as a necessary part","The job will entail a lot of travel."],
+["underpin","support; form the basis of","Two key assumptions underpin the theory."],["curtail","reduce or limit","The storm forced us to curtail our trip."],["warrant","justify; make necessary","The evidence does not warrant such a strong conclusion."],["substantiate","prove with evidence","He could not substantiate his claims."],["refute","prove a statement wrong","Later studies refute the original findings."],
+["concede","admit, often reluctantly","I concede that the plan has risks."],["discern","notice or recognise with effort","It was hard to discern any pattern in the results."],["perpetuate","make something (usually bad) continue","Such jokes perpetuate harmful stereotypes."],["hinder","make progress difficult","Poor lighting can hinder concentration."],["bolster","strengthen, support","The win will bolster the team's morale."],
+["attribute","say something is caused by (attribute X to Y)","Experts attribute the decline to rising costs."],["deem","consider, judge (formal)","The building was deemed unsafe."],["endorse","publicly approve or support","Several doctors endorse the new guidelines."],["facilitate","make a process easier","Clear signs facilitate movement through the station."],["impede","slow down or block","Bureaucracy can impede innovation."],
+["reconcile","make two ideas or people agree","It is hard to reconcile ambition with family life."],["scrutinise","examine very carefully","Journalists will scrutinise every detail of the budget."],["compel","force someone to do something","Nothing could compel her to apologise."],["yield","produce a result; give way","The experiment did not yield useful data."],["pervade","spread through every part","A sense of gloom seemed to pervade the office."]]},
+{id:"nouns",t:"Nouns for handling ideas",why:"Essays are about ideas, and these are the nouns that name them. They let you talk about an argument instead of just making one.",items:[
+["notion","an idea or belief","The notion that money buys happiness is widely questioned."],["premise","the idea an argument rests on","The whole film rests on an unlikely premise."],["implication","a likely effect; a suggested meaning","The implication of the study is clear."],["discrepancy","a difference that shouldn't exist","There is a discrepancy between the two reports."],["consensus","general agreement","There is no consensus on the best approach."],
+["rationale","the reasons behind a decision","Nobody explained the rationale for the change."],["caveat","a warning or condition attached to something","The offer comes with one caveat: you must pay upfront."],["trade-off","a balance between competing things","There is always a trade-off between speed and accuracy."],["quandary","a state of not knowing what to do","I am in a quandary about which offer to accept."],["paradox","a situation that seems to contradict itself","It is a paradox that more choice can make us less happy."],
+["nuance","a very small difference in meaning or feeling","Translation often loses the nuance of the original."],["prerequisite","something needed first","Patience is a prerequisite for teaching."],["constraint","a limit or restriction","Time is our main constraint."],["incentive","something that encourages action","Tax breaks give firms an incentive to invest."],["ramifications","complex, often unwanted consequences","Nobody foresaw the ramifications of the decision."],
+["catalyst","something that sets off change","The crisis acted as a catalyst for reform."],["precedent","an earlier case used as an example","The ruling sets a dangerous precedent."],["threshold","the level at which something starts","Most people have a low threshold for boredom."],["scope","the range covered; room for something","This question is beyond the scope of the essay."],["stance","a publicly stated attitude","The party has changed its stance on taxes."],
+["tenet","a central principle","Free speech is a basic tenet of democracy."],["anomaly","something unusual or unexpected","The cold summer was an anomaly."],["bias","an unfair preference","The survey shows a clear bias towards city dwellers."],["pitfall","a hidden danger or difficulty","Avoid the common pitfall of writing too much."],["onus","responsibility or duty to do something","The onus is on the employer to prove the dismissal was fair."]]},
+{id:"adj",t:"Adjectives that say exactly what you mean",why:"Each replaces a vague phrase (\"not very likely to work\", \"bad for\") with one exact word. That is precision in a single move.",items:[
+["viable","able to work successfully","Solar power is now a viable alternative."],["inherent","existing as a natural, permanent part","Every investment carries inherent risks."],["detrimental","harmful","Lack of sleep is detrimental to health."],["plausible","reasonable and likely to be true","Her explanation sounded plausible."],["contentious","causing disagreement","Immigration remains a contentious issue."],
+["ambiguous","with more than one possible meaning","The instructions were ambiguous."],["arbitrary","based on chance, not reason","The rules seem completely arbitrary."],["feasible","possible and practical","Is it feasible to finish by Friday?"],["negligible","too small to matter","The difference in price is negligible."],["pervasive","spreading everywhere","Advertising has become pervasive."],
+["profound","very great or deep","The book had a profound effect on me."],["prone","likely to suffer or do (+ to)","Young drivers are prone to accidents."],["robust","strong; hard to break or disprove","We need a more robust system."],["tentative","not certain or confident","We made tentative plans to meet in June."],["unprecedented","never having happened before","The floods caused unprecedented disruption."],
+["volatile","likely to change suddenly","Fuel prices are notoriously volatile."],["ubiquitous","found everywhere","Smartphones are now ubiquitous."],["meticulous","very careful about detail","She keeps meticulous records."],["cursory","quick and not thorough","He gave the report only a cursory glance."],["conducive","helping something happen (+ to)","A quiet room is conducive to study."],
+["superfluous","more than is needed; unnecessary","Cut any superfluous words from your essay."],["tenuous","very weak or slight","The link between the two events is tenuous."],["candid","honest and direct","He gave a candid interview about his failures."],["mundane","ordinary and dull","Even mundane tasks can be satisfying."],["inexorable","impossible to stop","Nothing could halt the inexorable rise of online shopping."]]},
+{id:"chunks",t:"Collocation chunks",why:"Learn each as one unit. Use of English Part 1 tests exactly these pairings, and they make writing sound native.",items:[
+["pose a threat","be a danger","Rising seas pose a threat to coastal towns."],["shed light on","help to explain","The letters shed light on her early life."],["strike a balance","find a fair middle point","We must strike a balance between work and rest."],["raise concerns","make people worried","The report raises concerns about safety."],["draw a distinction","show how two things differ","It is important to draw a distinction between fact and opinion."],
+["play a pivotal role","be centrally important","Teachers play a pivotal role in shaping attitudes."],["give rise to","cause, produce","Poverty can give rise to crime."],["turn a blind eye to","deliberately ignore","Officials often turn a blind eye to the problem."],["come under scrutiny","be examined critically","The company's accounts have come under scrutiny."],["bear the brunt of","suffer the worst part of","Small businesses bear the brunt of the tax."],
+["fall short of","fail to reach","The results fall short of our expectations."],["set a precedent","create an example for the future","This case could set a precedent."],["run the risk of","risk","You run the risk of losing everything."],["pay lip service to","say you support but do nothing","Many firms pay lip service to diversity."],["lay the foundations for","create the basis for","These reforms lay the foundations for growth."],
+["reach a consensus","agree as a group","The committee failed to reach a consensus."],["stand you in good stead","be useful to you later","Learning Latin will stand you in good stead."],["take for granted","fail to appreciate","Never take good health for granted."],["come to terms with","accept something painful","It took years to come to terms with the loss."],["gain momentum","grow stronger and faster","The campaign began to gain momentum."],
+["have a vested interest in","benefit personally from","Oil firms have a vested interest in the debate."],["address the issue","deal with a problem","The plan does not address the issue of cost."],["come to a head","reach a crisis point","Matters are likely to come to a head next week."],["make allowances for","consider special circumstances","We should make allowances for his age."],["leave a lot to be desired","be unsatisfactory","The service leaves a lot to be desired."]]},
+{id:"intens",t:"Intensifiers: goodbye to \"very\"",why:"Fixed adverb and adjective pairs. Get the pairing right and you sound natural; \"strongly disappointed\" sounds foreign.",items:[
+["bitterly disappointed","extremely let down","Fans were bitterly disappointed by the draw."],["highly unlikely","almost certainly not","It is highly unlikely that the shop is open."],["deeply concerned","very worried","Parents are deeply concerned about the changes."],["utterly exhausted","completely worn out","After the night shift I was utterly exhausted."],
+["painfully aware","uncomfortably conscious","I was painfully aware of my accent."],["vastly different","completely different","The two cities are vastly different."],["strongly advise","recommend firmly","I strongly advise you to read the contract."],["sorely tempted","very tempted","I was sorely tempted to leave early."],["blissfully unaware","happily ignorant","He was blissfully unaware of the chaos behind him."],
+["acutely embarrassed","intensely embarrassed","She was acutely embarrassed by the mistake."],["sharply critical","strongly critical","The review was sharply critical of the director."],["fiercely independent","determined to manage alone","My grandmother remained fiercely independent."],["eminently sensible","extremely sensible","It seems an eminently sensible plan."],["perfectly reasonable","entirely fair","It's a perfectly reasonable request."],
+["wholly unacceptable","completely unacceptable","Such behaviour is wholly unacceptable."],["widely regarded","seen by many people as","She is widely regarded as the best in her field."],["closely linked","strongly connected","Diet and mood are closely linked."],["patently obvious","completely obvious","It was patently obvious that he was lying."],["roundly condemned","criticised by almost everyone","The attack was roundly condemned."],["gravely concerned","extremely worried (formal)","The UN is gravely concerned about the fighting."]]},
+{id:"preps",t:"Prepositional phrases the exam tests",why:"Use of English Parts 1 and 2 love fixed prepositional phrases. One missing \"of\" costs a mark, and they are easy marks once learned.",items:[
+["in the wake of","following (often something bad)","In the wake of the scandal, she resigned."],["at odds with","in disagreement with","His actions are at odds with his words."],["on the verge of","very close to","The species is on the verge of extinction."],["with a view to","with the aim of (+ -ing)","They bought the flat with a view to renting it out."],["by virtue of","because of","She got the job by virtue of her experience."],
+["in the light of","considering","In the light of new evidence, the case was reopened."],["at the expense of","causing harm to","He succeeded at the expense of his health."],["irrespective of","regardless of","Everyone pays the same, irrespective of income."],["contrary to","opposite to","Contrary to popular belief, bats are not blind."],["in keeping with","suitable for, matching","The design is in keeping with the old town."],
+["insight into","understanding of","The diary gives insight into his mind."],["susceptible to","easily affected by","Children are more susceptible to infection."],["reliant on","dependent on","The town is reliant on tourism."],["adept at","skilled at","She is adept at handling difficult clients."],["averse to","opposed to, disliking","I'm not averse to a little risk."],
+["tantamount to","equivalent to (something bad)","His silence was tantamount to a confession."],["indicative of","showing, suggesting","The rise is indicative of a wider trend."],["akin to","similar to","The feeling was akin to panic."],["oblivious to","not aware of","He was oblivious to the danger."],["wary of","cautious about","Be wary of offers that seem too good."],
+["preoccupied with","thinking too much about","She was preoccupied with her exams."],["in excess of","more than","The house sold for in excess of a million."],["at the behest of","because someone ordered or asked","He resigned at the behest of the board."],["in tandem with","together with, at the same time as","Prices rose in tandem with wages."],["on the grounds that","because (formal reason)","He was refused entry on the grounds that he had no ticket."]]},
+{id:"phrasal",t:"Phrasal verbs that pay",why:"A short list covers most of what appears in C2 texts. These are the formal, idea-moving ones, not slang.",items:[
+["account for","explain; form a part of","How do you account for the missing money?"],["bring about","cause to happen","Only new laws can bring about real change."],["come across as","seem to be","He can come across as arrogant."],["stem from","come from, be caused by","Many problems stem from poor communication."],["rule out","exclude a possibility","We cannot rule out the possibility of rain."],
+["put forward","suggest an idea or plan","She put forward a compelling argument."],["do away with","abolish","The school wants to do away with uniforms."],["weigh up","consider carefully","Weigh up the pros and cons before deciding."],["iron out","solve small problems","We need to iron out a few details."],["live up to","be as good as expected","The film did not live up to the hype."],
+["make up for","compensate","Nothing can make up for lost time."],["fall back on","use when other things fail","It's good to have savings to fall back on."],["phase out","gradually stop using","The city will phase out diesel buses."],["play down","make seem less important","The minister tried to play down the crisis."],["hinge on","depend entirely on","Everything will hinge on the final vote."],
+["touch on","mention briefly","The talk will touch on ethics only briefly."],["hammer out","reach an agreement after long argument","Negotiators worked all night to hammer out a deal."],["rein in","control or limit","The government must rein in spending."],["stumble upon","find by chance","Researchers sometimes stumble upon their best ideas."],["shore up","support something that is weak","The bank stepped in to shore up the currency."],
+["embark on","start something new and important","She is about to embark on a new career."],["set out","explain in an organised way; begin","The first chapter will set out the main argument."],["delve into","research something deeply","The documentary will delve into the history of the region."],["gloss over","treat a problem too briefly, to hide it","The report tends to gloss over the risks."],["bear out","confirm as true","The figures bear out her argument."]]},
+{id:"stance",t:"Discourse and stance",why:"These organise an essay and show your attitude. A handful used well beats \"firstly, secondly, in conclusion\".",items:[
+["arguably","it can be argued","She is arguably the finest poet of her generation."],["admittedly","it must be accepted (concession)","Admittedly, the plan is expensive."],["nonetheless","despite this","It was raining; nonetheless, we went out."],["albeit","although (+ phrase)","He agreed, albeit reluctantly."],
+["conversely","in the opposite way","Some relax by exercising; conversely, others need total rest."],["notwithstanding","despite (formal)","Notwithstanding the cost, the project went ahead."],["hence","for this reason","The fuel is cheap, hence its popularity."],["thereby","as a result of this action","She left early, thereby missing the speech."],["whereby","by which","They created a system whereby users vote on new features."],
+["that said","however, having said that","The hotel was expensive. That said, the view was worth it."],["on balance","after considering everything","On balance, the benefits outweigh the costs."],["to a large extent","mostly","Success depends to a large extent on luck."],["in essence","basically","In essence, the argument is about trust."],["by and large","generally","By and large, the trip was a success."],
+["it stands to reason","it is logical","It stands to reason that tired drivers cause accidents."],["needless to say","obviously","Needless to say, we were delighted."],["with this in mind","considering this","With this in mind, I propose two changes."],["insofar as","to the extent that","The model is useful insofar as it predicts trends."],["be that as it may","accepting that, still","It's late. Be that as it may, we must finish."],["all things considered","overall","All things considered, it was a good decision."]]},
+{id:"forms",t:"Word families for Part 3",why:"Word formation rewards knowing whole families, especially negative prefixes and noun forms. These roots come up again and again.",items:[
+["rely","reliance, reliable, unreliable, reliably","Our reliance on cars is growing."],["deny","denial, undeniable, undeniably","The evidence is undeniable."],["suffice","sufficient, insufficient, sufficiently","There was insufficient evidence."],
+["signify","significance, significant, insignificant","Don't underestimate the significance of sleep."],["conceive","conception, conceivable, inconceivable, misconception","It is inconceivable that he lied."],["able","ability, inability, enable, disabled, ably","His inability to listen cost him the job."],["resist","resistance, resistant, irresistible","The offer was irresistible."],["comprehend","comprehension, comprehensive, incomprehensible","The instructions were incomprehensible."],
+["apply","application, applicant, applicable, inapplicable","The rule is not applicable here."],["prevail","prevalence, prevalent, prevailing","The prevalence of obesity is rising."],["compare","comparison, comparable, incomparable, comparatively","The two salaries are comparable."],["persist","persistence, persistent, persistently","Persistence matters more than talent."],["contend","contention, contentious, contender","Funding remains a bone of contention."],
+["assume","assumption, unassuming, presumably (from presume)","He was a quiet, unassuming man."],["hesitate","hesitation, hesitant, unhesitatingly","She answered unhesitatingly."]]}
+];
+
+const SPEAK=[
+"Is the place where you grew up a far cry from what it was twenty years ago? What has changed, and is it for the better?",
+"Should referees, judges or examiners be replaced by technology? Where would something be lost?",
+"What leaves people utterly exhausted by modern life, and what could be done about it?",
+"Describe a time you realised something too late. What would you do differently now?",
+"What matters most in choosing a career: passion, pay or security? Defend one.",
+"If you could change one decision in history, which would it be, and what might have followed?",
+"Talk about a skill you learned the hard way. What did the process teach you?",
+"How certain can we ever be about what we read online? How do you decide what to trust?",
+"Should governments phase out private cars in city centres? Weigh up both sides.",
+"Is jealousy ever useful? Use an example from life, literature or film.",
+"Is it better to be merciful or to be fair? Can you be both?",
+"Is life really like a performance? When are you most and least yourself?",
+"Should university education be free for everyone? Build an argument with a concession.",
+"Is tourism good for the places people visit? Summarise both views, then give yours.",
+"Is understatement a virtue, or a polite way of avoiding the truth?",
+"Persuade your class to support a cause you care about.",
+"Is it harder to say something briefly than at length? Why?",
+"How does the way you speak change at home, at school or work, and online?",
+"Does poetry still matter? Why do people still memorise and quote it?",
+"Is Shakespeare still worth reading today? Give your considered view."];
+const SK={reading:{n:"Reading",days:[2,12,13,15],lists:["nouns","stance"]},uoe:{n:"Use of English",days:[1,3,4,7,9],lists:["chunks","preps","forms"]},writing:{n:"Writing",days:[8,13,14,17,18],lists:["verbs","stance"]},listening:{n:"Listening",days:[10,11,19],lists:["phrasal","intens"]},speaking:{n:"Speaking",days:[5,6,8,16],lists:["stance","chunks"]}};
+const SKK=Object.keys(SK);
+
+const KEY="woodenO-v2";
+const blank=()=>({done:{},pts:{},notes:{},speech:{},known:{},srs:{},scores:null,tests:[]});
+let S=blank();
+try{
+  const r=localStorage.getItem(KEY);if(r)S=Object.assign(S,JSON.parse(r));
+  if(!S.migrated){const o=localStorage.getItem("woodenO-v1");if(o){const O=JSON.parse(o),map=[0,1,3,4,5,7,8,9,11,12,14,15,16,18,19];
+    for(const k in O.done||{})if(O.done[k]&&map[k]!==undefined)S.done[map[k]]=true;
+    for(const k in O.notes||{})if(map[k]!==undefined&&!S.notes[map[k]])S.notes[map[k]]=O.notes[k];}
+    S.migrated=true}
+}catch(e){}
+/* saving: this browser always; your claude.ai account too, where the page can reach it */
+let CLOUD=null,cloudState="local",pushT=null,pushing=false,pushAgain=false;
+function save(){S.t=Date.now();try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}if(CLOUD){clearTimeout(pushT);pushT=setTimeout(push,1500)}}
+async function push(){
+  if(!CLOUD)return;if(pushing){pushAgain=true;return}
+  pushing=true;
+  try{await CLOUD.set(JSON.parse(JSON.stringify(S)));cloudState="synced"}catch(e){cloudState=e&&e.code==="quota_exceeded"?"full":"error"}
+  pushing=false;showSave();if(pushAgain){pushAgain=false;push()}
+}
+function showSave(){
+  const msg={local:"Saved in this browser only. Open the page on claude.ai, signed in, to keep a copy in your account.",synced:"Saved to your claude.ai account and in this browser.",loading:"Connecting to your claude.ai account...",error:"Saved in this browser. Your account copy didn't update; it will try again on your next change.",full:"Your account storage is full, so only this browser has your latest work."}[cloudState];
+  document.querySelectorAll(".savest").forEach(el=>el.textContent=msg);
+}
+if(!Array.isArray(S.tests))S.tests=[];
+const loadedT=S.t||0;
+try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const norm=t=>(" "+t.toLowerCase().replace(/[’']/g,"'")+" ").replace(/n't\b/g," not").replace(/'s\b/g," is").replace(/[^a-z -]/g," ").replace(/-/g," ").replace(/\s+/g," ").trim();
+const roman=["I","II","III","IV","V"];
+const PER=4,N=D.length;
+const isCore=(L,i)=>i<Math.ceil(L.items.length*.2);
+const kid=(L,i)=>L.id+":"+i;
+const itemOf=k=>{const p=k.split(":"),L=LISTS.find(x=>x.id===p[0]);return L&&L.items[+p[1]]?[L,+p[1]]:null};
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const $=id=>document.getElementById(id);
+
+/* spaced repetition: a new item is seen, then reviewed after 1, 3, 7 and 21 days; the fifth success makes it known */
+const dayStr=(n=0)=>{const d=new Date();d.setDate(d.getDate()+n);return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")};
+const IV=[1,3,7,21];
+function enqueue(k){if(!S.srs[k]&&!S.known[k]){S.srs[k]={b:0,due:dayStr()};save()}}
+function grade(k,ok){const c=S.srs[k]||{b:0,due:dayStr()};if(ok){c.b++;if(c.b>IV.length){S.known[k]=true;c.due=dayStr(60)}else c.due=dayStr(IV[c.b-1])}else{c.b=0;c.due=dayStr(1);delete S.known[k]}S.srs[k]=c;save()}
+function setKnown(k,v){if(v){S.known[k]=true;S.srs[k]={b:IV.length+1,due:dayStr(60)}}else{delete S.known[k];S.srs[k]={b:0,due:dayStr()}}save()}
+const dueKeys=()=>{const t=dayStr();return Object.keys(S.srs).filter(k=>!S.known[k]&&S.srs[k].due<=t&&itemOf(k))};
+const stepOf=k=>{const c=S.srs[k];return S.known[k]?"known":c?`step ${Math.min(c.b+1,5)} of 5`:"new"};
+
+/* skill focus from Cambridge scores */
+function weakest(){if(!S.scores)return[];const v=SKK.filter(k=>S.scores[k]>0);if(v.length<2)return[];return v.sort((a,b)=>S.scores[a]-S.scores[b]).slice(0,2)}
+function recFor(day){return weakest().filter(k=>SK[k].days.includes(day+1)).map(k=>SK[k].n)}
+const recLists=()=>new Set(weakest().flatMap(k=>SK[k].lists));
+
+/* Claude capabilities: features light up only where the viewer can use them */
+let AI=null,TTS=null,DIC=null;
+const CAP={sample:()=>AI,tts:()=>TTS,dictation:()=>DIC};
+function capOn(){document.querySelectorAll("[data-cap]").forEach(el=>{el.hidden=!CAP[el.dataset.cap]()});document.querySelectorAll("[data-nocap]").forEach(el=>{el.hidden=!!CAP[el.dataset.nocap]()})}
+if(window.claude&&window.claude.use){
+  window.claude.use("sample").then(x=>{AI=x;capOn()}).catch(()=>{});
+  window.claude.use("tts").then(x=>{TTS=x;capOn()}).catch(()=>{});
+  (async()=>{try{
+    const [db,user]=await Promise.all([window.claude.use("db"),window.claude.use("user")]);if(!db||!user)return;
+    const id=await user.id();if(!id)return;
+    cloudState="loading";showSave();
+    const ref=db.doc("data/users/"+id+"/progress");
+    const tm=setTimeout(()=>{if(cloudState==="loading"){cloudState="local";showSave()}},10000);
+    const snap=await ref.get();clearTimeout(tm);CLOUD=ref;
+    if(snap.exists){const r=snap.data()||{};if((r.t||0)>loadedT){S=Object.assign(blank(),JSON.parse(JSON.stringify(r)));try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}cloudState="synced";showSave();route();return}}
+    cloudState="synced";showSave();push();
+  }catch(e){cloudState="local";showSave()}})();
+  window.claude.use("dictation").then(x=>{DIC=x;capOn();if(DIC){DIC.onFinal(({text})=>{const t=$("sp"+cur);if(t&&text){t.value=(t.value.trim()+" "+text).trim();S.speech[cur]=t.value;save();updWc()}});DIC.onState(({state})=>{const b=$("mic");if(b){b.classList.toggle("on",state==="listening");b.textContent=state==="listening"?"Stop":"Speak your answer"}})}}).catch(()=>{});
+}
+let sayBtn=null;
+function say(text,btn){
+  if(!TTS)return;
+  if(sayBtn===btn){TTS.stop();return}
+  if(sayBtn)sayBtn.classList.remove("on");
+  sayBtn=btn;btn.classList.add("on");const lab=btn.textContent;btn.textContent="Stop";
+  TTS.speak(text,{voice:"rounded",rate:.95,language:"en"}).catch(()=>{}).finally(()=>{btn.classList.remove("on");btn.textContent=lab;if(sayBtn===btn)sayBtn=null});
+}
+function aiErr(e){return e&&e.code==="rate_limited"?"Too many requests just now. Try again in a minute.":e&&e.code==="not_granted"?"Feedback from Claude is turned off for this page.":"Couldn't get feedback this time. Try again."}
+async function ask(prompt,out,btn){
+  if(!AI)return;btn.disabled=true;out.textContent="Reading your work...";
+  try{const r=await AI(prompt,{modelTier:"default",cache:false,onText:({text})=>{out.textContent=text}});out.textContent=r.text}
+  catch(e){out.textContent=aiErr(e)}
+  btn.disabled=false;
+}
+const RULES="Reply in plain text with no markdown symbols (no asterisks, no #). Be direct, specific and encouraging. Do not invent errors that are not there.";
+
+/* ---------- bootcamp ---------- */
+let view="bootcamp",cur=0,curList=LISTS[0].id,wq="",wf="all",prac=null;
+const firstOpen=()=>{for(let i=0;i<N;i++)if(!S.done[i])return i;return N-1};
+cur=firstOpen();
+const SEQ=[];{const mx=Math.max(...LISTS.map(L=>L.items.length));for(let r=0;r<mx;r++)for(const L of LISTS)if(L.items[r])SEQ.push([L,r])}
+const today=d=>SEQ.slice(d*6,d*6+6);
+const dayPts=d=>Object.values(S.pts[d]||{}).reduce((a,b)=>a+b,0);
+
+const globe=$("globe");
+function drawGlobe(){
+  const cx=200,cy=200,R=192,r=128;let h="";
+  h+=`<circle cx="${cx}" cy="${cy}" r="${r-4}" fill="var(--woodt)"/>`;
+  h+=`<path d="M${cx-58} ${cy-r+8} L${cx+58} ${cy-r+8} L${cx+44} ${cy-30} L${cx-44} ${cy-30} Z" fill="var(--wood)"/>`;
+  h+=`<path d="M${cx-44} ${cy-30} L${cx+44} ${cy-30} L${cx+44} ${cy-22} L${cx-44} ${cy-22} Z" fill="color-mix(in srgb,var(--wood) 70%,#000)"/>`;
+  const doneN=Object.keys(S.done).filter(k=>S.done[k]).length;
+  h+=`<text x="${cx}" y="${cy+30}" text-anchor="middle" fill="var(--oxi)" style="font:400 46px 'IM Fell English',serif">${doneN}/${N}</text>`;
+  h+=`<text x="${cx}" y="${cy+56}" text-anchor="middle" fill="var(--soft)" style="font:600 15px 'Source Sans 3',sans-serif">days performed</text>`;
+  const pt=(rad,a)=>(cx+rad*Math.cos(a)).toFixed(1)+","+(cy+rad*Math.sin(a)).toFixed(1);
+  for(let i=0;i<N;i++){
+    const a0=-Math.PI/2+(i/N)*2*Math.PI+.012,a1=-Math.PI/2+((i+1)/N)*2*Math.PI-.012,am=(a0+a1)/2;
+    const done=!!S.done[i],isCur=i===cur,rec=recFor(i).length>0;
+    const fill=done?"var(--ox)":isCur?"var(--gold)":(Math.floor(i/PER)%2?"var(--woodt)":"color-mix(in srgb,var(--woodt) 65%,var(--wood))");
+    const tc=done?"#fff":isCur?"#1d1416":"var(--ink)";
+    const mx=cx+(R+r)/2*Math.cos(am),my=cy+(R+r)/2*Math.sin(am);
+    h+=`<path class="bay" tabindex="0" role="button" aria-label="Day ${i+1}: ${esc(D[i].t)}${done?", done":""}${rec?", recommended":""}" data-i="${i}" d="M${pt(R,a0)} A${R} ${R} 0 0 1 ${pt(R,a1)} L${pt(r,a1)} A${r} ${r} 0 0 0 ${pt(r,a0)} Z" fill="${fill}"/>`;
+    h+=`<text x="${mx.toFixed(1)}" y="${(my+6).toFixed(1)}" text-anchor="middle" fill="${tc}">${i+1}</text>`;
+    if(rec&&!done){const dx=cx+(r+10)*Math.cos(am),dy=cy+(r+10)*Math.sin(am);h+=`<circle cx="${dx.toFixed(1)}" cy="${dy.toFixed(1)}" r="5" fill="${isCur?"#1d1416":"var(--gold)"}" pointer-events="none"/>`}
+  }
+  h+=`<circle cx="${cx}" cy="${cy}" r="${R}" fill="none" stroke="var(--wood)" stroke-width="2"/>`;
+  globe.innerHTML=h;
+  $("bar").style.width=(doneN/N*100)+"%";
+  const pts=D.reduce((a,_,d)=>a+dayPts(d),0),due=dueKeys().length;
+  $("prog").innerHTML=`${doneN} of ${N} days complete · ${pts} of ${N*6} drill marks · <a href="#words">${due} word card${due===1?"":"s"} due</a>`;
+  $("acts").innerHTML=ACTS.map((a,k)=>{const dn=[0,1,2,3].filter(j=>S.done[k*PER+j]).length;return `<li><b>Act ${roman[k]}</b><span>${a} · days ${k*PER+1}–${k*PER+PER}</span><span>${dn}/${PER}</span></li>`}).join("");
+  const w=weakest();
+  $("focusnote").innerHTML=w.length?`<b>Your focus: ${w.map(k=>SK[k].n).join(" and ")}</b>Days marked with a gold dot: ${[...new Set(w.flatMap(k=>SK[k].days))].sort((a,b)=>a-b).map(d=>`<a href="#day-${d}">${d}</a>`).join(", ")}. <a href="#exam">Change scores</a>`
+    :`<b>Make it yours</b><a href="#exam">Enter your skill scores</a> and the days that target your weakest skills get marked.`;
+}
+const scene=$("scene");
+function renderDay(){
+  const d=D[cur],act=Math.floor(cur/PER),sc=cur%PER+1,rec=recFor(cur);
+  today(cur).forEach(([L,i])=>enqueue(kid(L,i)));
+  const pts=S.pts[cur]||{};
+  scene.innerHTML=`<div class="kick">Act ${roman[act]}, scene ${sc} · day ${cur+1} of ${N} · ${ACTS[act]}${rec.length?` · <span class="rec">Recommended for your ${rec.join(" and ")}</span>`:""}</div>
+  <h2>${esc(d.t)}</h2><p class="focus">${esc(d.f)}</p>
+  <section class="blk"><div class="row" style="justify-content:space-between;margin-bottom:12px"><h3 style="margin:0">The passage</h3><button class="sm" data-cap="tts" data-say="verse" hidden>Listen</button></div><blockquote class="verse">${esc(d.v)}</blockquote><p class="src">${esc(d.s)}</p><p class="gloss">${esc(d.g)}</p></section>
+  <section class="blk"><h3>Expressions to own</h3><div class="ex">${d.x.map(e=>`<div><b>${esc(e[0])}</b>${e[1]?`<em>From ${esc(e[1])}</em>`:""}<p>${esc(e[2])}</p><q>${esc(e[3])}</q></div>`).join("")}</div></section>
+  <section class="blk"><h3>Today's six words</h3><p class="hint" style="margin:-4px 0 10px">The next six items from the 80/20 lists, most useful first. They join your review queue today; tick one only if you could already use it in a sentence.</p>
+  <table class="stack"><thead><tr><th>Item</th><th>Meaning</th><th>List</th><th>Known</th></tr></thead><tbody>${today(cur).map(([L,i])=>{const it=L.items[i],k=kid(L,i);return `<tr class="${S.known[k]?"known":""}"><td class="w" data-l="Item">${esc(it[0])}${isCore(L,i)?'<span class="core">core</span>':""}</td><td data-l="Meaning">${esc(it[1])}</td><td data-l="List"><a href="#words-${L.id}">${esc(L.t)}</a></td><td class="c" data-l="Known"><input type="checkbox" data-k="${k}" ${S.known[k]?"checked":""} aria-label="I know ${esc(it[0])}"></td></tr>`}).join("")}</tbody></table></section>
+  <section class="blk"><h3>Drills</h3><p class="hint" style="margin:-4px 0 12px">Cambridge-style: complete the second sentence so it means the same as the first, using the word given, unchanged, in 3 to 8 words (contractions count as two). As in the exam, each answer has two parts worth 1 mark each.</p>
+  ${d.d.map((q,j)=>`<div class="dr"><p>${esc(q[0])}</p><span class="kw">${esc(q[1])}</span><p>${esc(q[2]).replace("___","<strong>______</strong>")}</p>
+  <div class="row"><input type="text" id="a${cur}-${j}" aria-label="Answer ${j+1}" autocomplete="off" spellcheck="false"><button data-chk="${j}">Check</button></div><div class="fb" id="f${cur}-${j}">${pts[j]!==undefined?`Last time: ${pts[j]} of 2 marks.`:""}</div></div>`).join("")}
+  <p class="tally" id="tally"></p></section>
+  <section class="blk"><h3>Rehearsal: writing</h3><p style="margin:0 0 10px">${esc(d.k)}</p>
+  <textarea id="note${cur}" aria-label="Your writing for day ${cur+1}" placeholder="Write here. It is saved in this browser as you type.">${esc(S.notes[cur]||"")}</textarea><div class="wc" id="wc"></div>
+  <div class="row" style="margin-top:10px"><button class="main" id="wfbb" data-cap="sample" hidden>Get feedback from Claude</button><span class="hint" data-nocap="sample">Feedback from Claude appears here when you open the page on claude.ai.</span></div>
+  <div class="aiout" id="wfb" aria-live="polite"></div></section>
+  <section class="blk"><h3>Rehearsal: speaking</h3><p style="margin:0 0 4px"><b>${esc(SPEAK[cur])}</b></p><p class="hint" style="margin:0 0 10px">Talk for about two minutes, as in the Speaking long turn. Your words appear below; you can tidy them before asking for feedback.</p>
+  <div class="row" style="margin-bottom:10px"><button class="main" id="mic" data-cap="dictation" hidden>Speak your answer</button><span class="hint" data-nocap="dictation">No microphone here: type what you would say instead.</span></div>
+  <textarea id="sp${cur}" aria-label="Transcript of your spoken answer" placeholder="Your spoken answer, as text.">${esc(S.speech[cur]||"")}</textarea><div class="wc" id="swc"></div>
+  <div class="row" style="margin-top:10px"><button id="sfbb" data-cap="sample" hidden>Get feedback on my answer</button></div>
+  <div class="aiout" id="sfb" aria-live="polite"></div></section>
+  <div class="nav"><button id="prev" ${cur===0?"disabled":""}>Previous day</button>
+  <button class="main" id="done">${S.done[cur]?"Done · mark as not done":"Mark day "+(cur+1)+" as done"}</button>
+  <button id="next" ${cur===N-1?"disabled":""}>Next day</button></div>`;
+  updWc();tally();capOn();
+}
+function tally(){const p=S.pts[cur]||{},n=Object.keys(p).length;const t=$("tally");if(t)t.textContent=n?`${dayPts(cur)} of ${n*2} marks on ${n} answered`:"";}
+function updWc(){for(const [id,o] of [["note"+cur,"wc"],["sp"+cur,"swc"]]){const t=$(id),w=$(o);if(!t||!w)continue;const n=(t.value.trim().match(/\S+/g)||[]).length;w.textContent=n+(n===1?" word":" words")}}
+function setMark(j,m,why){(S.pts[cur]=S.pts[cur]||{})[j]=m;save();const fb=$(`f${cur}-${j}`);fb.className="fb"+(m===2?" ok":"");fb.textContent=`${m} of 2 marks.`+(why?" "+why:"");tally();drawGlobe()}
+/* key word transformation marking, as Cambridge does it: two parts, one mark each; key word unchanged; 3 to 8 words */
+const hasW=(v,a)=>(" "+v+" ").includes(" "+norm(a)+" ");
+function autoMark(q,raw){
+  const v=norm(raw);if(!v)return null;
+  const wc=v.split(" ").length;
+  if(!hasW(v,q[1]))return {m:0,why:`The key word "${q[1]}" must appear, unchanged.`};
+  if(wc>8)return {m:0,why:"More than 8 words (contractions count as two), which scores 0 in the exam."};
+  if(q[3].some(a=>norm(a)===v))return {m:2,exact:true};
+  const A=q[4][0].some(a=>hasW(v,a)),B=q[4][1].some(a=>hasW(v,a));
+  const longest=Math.max(...q[3].map(a=>norm(a).split(" ").length));
+  let m=(A?1:0)+(B?1:0);if(m===2&&wc>longest+1)m=1;
+  return {m,A,B};
+}
+function check(j){
+  const q=D[cur].d[j],inp=$(`a${cur}-${j}`),fb=$(`f${cur}-${j}`);
+  const r=autoMark(q,inp.value);if(!r){fb.className="fb";fb.textContent="Type an answer first.";return}
+  if(r.exact){const v=norm(inp.value),others=q[3].filter(a=>norm(a)!==v);setMark(j,2,others.length?"Also accepted: "+others.join(" / "):"");return}
+  (S.pts[cur]=S.pts[cur]||{})[j]=r.m;save();tally();drawGlobe();
+  const parts=r.why?esc(r.why):`Part 1 (${esc(q[4][0][0])}): ${r.A?"found":"not found"}. Part 2 (${esc(q[4][1][0])}): ${r.B?"found":"not found"}.`;
+  fb.className="fb"+(r.m===2?" ok":"");
+  fb.innerHTML=`Auto-marked: ${r.m} of 2. ${parts} Model answer: <s>${esc(q[3][0])}</s>.<br><span class="marks"><button class="sm" data-aim="${j}" data-cap="sample" ${AI?"":"hidden"}>Ask Claude to mark it</button><button class="sm" data-m="${j}:2">Change to 2</button><button class="sm" data-m="${j}:1">Change to 1</button><button class="sm" data-m="${j}:0">Change to 0</button></span>`;
+}
+async function aiMark(j,btn){
+  const q=D[cur].d[j],ans=$(`a${cur}-${j}`).value.trim(),fb=$(`f${cur}-${j}`);
+  btn.disabled=true;btn.textContent="Marking...";
+  const prompt=`You mark a Cambridge C2 Proficiency key word transformation. The candidate must complete the second sentence so it means the same as the first, using the key word unchanged (or, for a choice item, choosing the right word).
+First sentence: ${q[0]}
+Key word or choice: ${q[1]}
+Second sentence: ${q[2]}
+Accepted answers: ${q[3].join(" | ")}
+The two marked parts: part 1 = ${q[4][0].join(" / ")}; part 2 = ${q[4][1].join(" / ")}. Answers over 8 words (contractions count as two) score 0.
+Candidate's answer (the words for the gap): ${ans}
+Mark as Cambridge does: 2 marks if fully correct, 1 if one of the two main parts is correct, 0 otherwise. Spelling must be correct. The key word must not be changed. Reply with JSON only: {"marks":0,"reason":"one short sentence"}`;
+  try{const r=await AI(prompt,{modelTier:"quick",cache:false});const m=JSON.parse((r.text.match(/\{[\s\S]*\}/)||["{}"])[0]);
+    if(m.marks===0||m.marks===1||m.marks===2)setMark(j,m.marks,"Claude: "+String(m.reason||""));else throw 0}
+  catch(e){btn.disabled=false;btn.textContent="Ask Claude to mark it";fb.append(" "+aiErr(e))}
+}
+function goDay(i,scroll){cur=i;history.replaceState(null,"","#day-"+(i+1));renderDay();drawGlobe();if(scroll)scene.scrollIntoView({block:"start",behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth"})}
+
+globe.addEventListener("click",e=>{const b=e.target.closest(".bay");if(b)goDay(+b.dataset.i,true)});
+globe.addEventListener("keydown",e=>{const b=e.target.closest(".bay");if(b&&(e.key==="Enter"||e.key===" ")){e.preventDefault();goDay(+b.dataset.i,true)}});
+scene.addEventListener("click",e=>{
+  const t=e.target.closest("button");if(!t)return;const d=D[cur];
+  if(t.dataset.chk!==undefined)check(+t.dataset.chk);
+  else if(t.dataset.m){const [j,m]=t.dataset.m.split(":").map(Number);setMark(j,m,"(self-marked)")}
+  else if(t.dataset.aim!==undefined)aiMark(+t.dataset.aim,t);
+  else if(t.dataset.say==="verse")say(d.v.replace(/\n/g," "),t);
+  else if(t.id==="mic"){if(!DIC)return;if(t.classList.contains("on"))DIC.stop().catch(()=>{});else DIC.start().catch(()=>{})}
+  else if(t.id==="wfbb"){const txt=$("note"+cur).value.trim();const out=$("wfb");if(txt.split(/\s+/).length<30){out.textContent="Write at least 30 words first, so there is something to assess.";return}
+    ask(`You are an experienced Cambridge C2 Proficiency writing examiner. The learner scored 191 overall on the Cambridge English Scale and is aiming for C2.
+Task: ${d.k}
+Target expressions today: ${d.x.map(x=>x[0]).join("; ")}
+Learner's text:
+"""${txt}"""
+${RULES} Use exactly these headings, each on its own line:
+Scores: a mark from 0 to 5 for Content, Communicative Achievement, Organisation and Language, one line each, with a few words of justification.
+What works: two short points.
+Fix these: up to five errors or weak phrasings. Quote the original, give an improved C2 version, then a reason in under 12 words.
+Upgrade to C2: three rewrites of the learner's own sentences, using a stronger collocation, a C2 structure (inversion, cleft, participle clause) and a precise linker.
+Today's expressions: which target expressions they used correctly, and where one more would fit naturally.
+Keep the whole reply under 350 words.`,out,t)}
+  else if(t.id==="sfbb"){const txt=$("sp"+cur).value.trim();const out=$("sfb");if(txt.split(/\s+/).length<30){out.textContent="Say or type at least 30 words first.";return}
+    ask(`You are an experienced Cambridge C2 Proficiency speaking examiner. Below is a transcript of a learner's two-minute answer (it may contain transcription slips; ignore those and punctuation).
+Question: ${SPEAK[cur]}
+Transcript:
+"""${txt}"""
+${RULES} Use exactly these headings, each on its own line:
+Scores: a mark from 0 to 5 for Grammatical Resource, Lexical Resource and Discourse Management, one line each, with a few words of justification. Say in one line that pronunciation cannot be judged from a transcript.
+What works: two short points.
+Say it better: up to four phrases from the transcript with a more natural or more advanced C2 alternative.
+Structure: one suggestion for organising a long turn (opening, development, conclusion).
+Keep the whole reply under 280 words.`,out,t)}
+  else if(t.id==="prev"&&cur>0)goDay(cur-1,true);
+  else if(t.id==="next"&&cur<N-1)goDay(cur+1,true);
+  else if(t.id==="done"){S.done[cur]=!S.done[cur];save();if(S.done[cur]&&cur<N-1)goDay(cur+1,true);else{renderDay();drawGlobe()}}
+});
+scene.addEventListener("keydown",e=>{if(e.key==="Enter"&&e.target.matches("input[type=text]"))check(+e.target.id.split("-")[1])});
+scene.addEventListener("input",e=>{if(e.target.id==="note"+cur){S.notes[cur]=e.target.value;save();updWc()}else if(e.target.id==="sp"+cur){S.speech[cur]=e.target.value;save();updWc()}});
+document.addEventListener("change",e=>{const k=e.target.dataset&&e.target.dataset.k;if(k){setKnown(k,e.target.checked);const tr=e.target.closest("tr");if(tr)tr.classList.toggle("known",e.target.checked);renderMenu()}});
+
+/* ---------- word lists ---------- */
+const getL=()=>LISTS.find(L=>L.id===curList)||LISTS[0];
+const knownIn=L=>L.items.filter((_,i)=>S.known[kid(L,i)]).length;
+function renderMenu(){
+  const rl=recLists();
+  $("menu").innerHTML=LISTS.map(L=>{const k=knownIn(L),n=L.items.length;return `<button data-list="${L.id}" aria-pressed="${L.id===curList}"><span>${esc(L.t)}${rl.has(L.id)?' <span class="rec">· focus</span>':""}</span><small>${k}/${n}</small><span class="m"><i style="width:${k/n*100}%"></i></span></button>`}).join("");
+  const tot=LISTS.reduce((a,L)=>a+L.items.length,0),kn=LISTS.reduce((a,L)=>a+knownIn(L),0);
+  const coreT=LISTS.reduce((a,L)=>a+Math.ceil(L.items.length*.2),0),coreK=LISTS.reduce((a,L)=>a+L.items.filter((_,i)=>isCore(L,i)&&S.known[kid(L,i)]).length,0);
+  $("wtotal").textContent=`${kn} of ${tot} items known · core: ${coreK} of ${coreT}. An item counts as known after five successful reviews spread over about a month, or when you tick it.`;
+  const due=dueKeys().length;$("duen").textContent=due;$("duet").textContent=due===1?"card due today":"cards due today";$("rev").disabled=!due;
+}
+function filtered(L){
+  const q=norm(wq);
+  return L.items.map((it,i)=>i).filter(i=>{const it=L.items[i],k=S.known[kid(L,i)];
+    if(wf==="core"&&!isCore(L,i))return false;if(wf==="unknown"&&k)return false;if(wf==="known"&&!k)return false;
+    return !q||norm(it.join(" ")).includes(q)});
+}
+function renderList(){
+  const L=getL(),idx=filtered(L),form=L.id==="forms";
+  $("wlist").innerHTML=`<h2>${esc(L.t)}</h2><p class="focus">${esc(L.why)}</p>
+  <div class="row" style="margin-bottom:14px"><input type="search" id="wq" value="${esc(wq)}" placeholder="Search this list" aria-label="Search this list">
+  <select id="wf" aria-label="Show"><option value="all">All items</option><option value="core">Core only</option><option value="unknown">Not known yet</option><option value="known">Known</option></select></div>
+  <div class="row" style="margin-bottom:18px"><button class="main" id="fc">Flashcards</button>${form?"":'<button id="gq">Gap quiz</button>'}<span class="hint">${idx.length} of ${L.items.length} shown</span></div>
+  <div id="prac"></div>
+  ${idx.length?`<table class="stack"><thead><tr><th>${form?"Root":"Item"}</th><th>${form?"Family":"Meaning"}</th><th>Example</th><th>Review</th><th>Known</th></tr></thead><tbody>${idx.map(i=>{const it=L.items[i],k=kid(L,i);return `<tr class="${S.known[k]?"known":""}"><td class="w" data-l="${form?"Root":"Item"}">${esc(it[0])}${isCore(L,i)?'<span class="core">core</span>':""}</td><td data-l="${form?"Family":"Meaning"}">${esc(it[1])}</td><td class="e" data-l="Example">${esc(it[2])}</td><td data-l="Review" style="white-space:nowrap">${stepOf(k)}</td><td class="c" data-l="Known"><input type="checkbox" data-k="${k}" ${S.known[k]?"checked":""} aria-label="I know ${esc(it[0])}"></td></tr>`}).join("")}</tbody></table>`:`<p class="empty">Nothing matches. Clear the search or change the filter.</p>`}`;
+  $("wf").value=wf;
+  renderPrac();
+}
+function startPrac(mode){
+  const L=getL();let idx=filtered(L);
+  if(mode==="gq")idx=idx.filter(i=>L.items[i][2].toLowerCase().includes(L.items[i][0].toLowerCase()));
+  const keys=idx.map(i=>kid(L,i));
+  const unk=shuffle(keys.filter(k=>!S.known[k])),kn=shuffle(keys.filter(k=>S.known[k]));
+  prac={mode,deck:unk.concat(kn).slice(0,mode==="gq"?10:999),pos:0,shown:false,right:0,ans:null,opts:null,review:false};
+  renderPrac();
+}
+function startReview(){prac={mode:"fc",deck:shuffle(dueKeys()),pos:0,shown:false,review:true,again:{}};renderPrac();$("prac")&&$("prac").scrollIntoView({block:"start"})}
+function renderPrac(){
+  const box=$("prac");if(!box)return;
+  if(!prac){box.innerHTML="";return}
+  const p=prac;
+  if(!p.deck.length){box.innerHTML=`<div class="card"><p>${p.review?"Nothing is due. Come back tomorrow, or practise a list.":"No items to practise with this filter."}</p><button id="pend">Close</button></div>`;return}
+  if(p.pos>=p.deck.length){box.innerHTML=`<div class="card"><div class="kick">Round complete</div><div class="big">${p.mode==="gq"?`${p.right} of ${p.deck.length} right`:`${p.deck.length} cards reviewed`}</div><div class="row">${p.review?"":`<button class="main" id="${p.mode}">Another round</button>`}<button id="pend">Close</button></div></div>`;return}
+  const k=p.deck[p.pos],[L,i]=itemOf(k),it=L.items[i];
+  if(p.mode==="fc"){
+    box.innerHTML=`<div class="card"><div class="kick">${p.review?"Review":"Card"} ${p.pos+1} of ${p.deck.length} · ${esc(L.t)} · ${stepOf(k)}${isCore(L,i)?" · core":""}</div><div class="big">${esc(it[0])}</div>
+    ${p.shown?`<p style="margin:0 0 4px"><b>${esc(it[1])}</b></p><p class="hint" style="margin:0 0 14px">${esc(it[2])}</p><div class="row"><button class="main" id="fyes">I knew it</button><button id="fno">Not yet</button><button class="sm" data-cap="tts" data-sayc="1" hidden>Listen</button><button id="pend">Stop</button></div>`
+    :`<p class="hint">Say the meaning and an example of your own, then turn the card.</p><div class="row"><button class="main" id="fshow">Turn card</button><button id="pend">Stop</button></div>`}</div>`;
+  }else{
+    if(!p.opts){const pool=shuffle(L.items.map((_,j)=>j).filter(j=>j!==i)).slice(0,3);p.opts=shuffle(pool.concat(i))}
+    const re=new RegExp(it[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i");
+    const gap=esc(it[2].replace(re,"\u0000")).replace("\u0000","<strong>________</strong>");
+    box.innerHTML=`<div class="card"><div class="kick">Question ${p.pos+1} of ${p.deck.length} · ${p.right} right</div><p class="gap">${gap}</p>
+    <div class="opts">${p.opts.map(j=>{let c="";if(p.ans!==null){if(j===i)c="right";else if(j===p.ans)c="wrong"}return `<button data-opt="${j}" class="${c}" ${p.ans!==null?"disabled":""}>${esc(L.items[j][0])}</button>`}).join("")}</div>
+    ${p.ans!==null?`<p class="fb ${p.ans===i?"ok":""}">${p.ans===i?"Right.":"It's <s>"+esc(it[0])+"</s>: "+esc(it[1])+". It goes back into your review queue."}</p><div class="row" style="margin-top:10px"><button class="main" id="gnext">Next</button><button id="pend">Stop</button></div>`:""}</div>`;
+  }
+  capOn();
+}
+$("v-words").addEventListener("click",e=>{
+  const t=e.target.closest("button");if(!t)return;
+  if(t.dataset.list){curList=t.dataset.list;wq="";wf="all";prac=null;history.replaceState(null,"","#words-"+curList);renderMenu();renderList();return}
+  if(t.id==="rev"){startReview();return}
+  const p=prac;
+  if(t.id==="fc"||t.id==="gq")startPrac(t.id);
+  else if(t.id==="pend"){prac=null;renderPrac();renderList()}
+  else if(t.id==="fshow"){p.shown=true;renderPrac()}
+  else if(t.dataset.sayc){const [L,i]=itemOf(p.deck[p.pos]);say(L.items[i][0]+". "+L.items[i][2],t)}
+  else if(t.id==="fyes"||t.id==="fno"){const k=p.deck[p.pos];
+    if(p.review&&p.again[k]){if(t.id==="fno")p.deck.push(k)}else{grade(k,t.id==="fyes");if(t.id==="fno"&&p.review){p.again[k]=1;p.deck.push(k)}}
+    p.pos++;p.shown=false;renderMenu();renderPrac()}
+  else if(t.dataset.opt!==undefined&&p&&p.ans===null){p.ans=+t.dataset.opt;const [,i]=itemOf(p.deck[p.pos]);if(p.ans===i)p.right++;else grade(p.deck[p.pos],false);renderPrac();renderMenu()}
+  else if(t.id==="gnext"){p.pos++;p.ans=null;p.opts=null;renderPrac()}
+});
+$("v-words").addEventListener("input",e=>{
+  if(e.target.id==="wq"){wq=e.target.value;const pos=e.target.selectionStart;renderList();const n=$("wq");n.focus();n.setSelectionRange(pos,pos)}
+});
+$("v-words").addEventListener("change",e=>{if(e.target.id==="wf"){wf=e.target.value;prac=null;renderList()}});
+
+/* ---------- phrasebook ---------- */
+const P=[];D.forEach((d,di)=>d.x.forEach(x=>P.push({p:x[0],src:x[1],m:x[2],e:x[3],day:di})));
+function renderPhrases(){
+  const q=norm($("pq").value),f=$("pf").value;
+  const list=P.filter(x=>(f==="all"||(f==="shk"?x.src:!x.src))&&(!q||norm(x.p+" "+x.m+" "+x.src+" "+x.e).includes(q)));
+  $("pcount").textContent=`${list.length} of ${P.length} phrases · ${P.filter(x=>x.src).length} linked to Shakespeare's plays and poems`;
+  $("plist").innerHTML=list.length?list.map(x=>`<div><b>${esc(x.p)}</b>${x.src?`<em>From ${esc(x.src)}</em>`:""}<p>${esc(x.m)}</p><p class="q">${esc(x.e)}</p><p style="font-size:14px"><a href="#day-${x.day+1}">Day ${x.day+1}: ${esc(D[x.day].t)}</a></p></div>`).join(""):`<p class="empty">No phrase matches.</p>`;
+}
+$("pq").addEventListener("input",renderPhrases);
+$("pf").addEventListener("change",renderPhrases);
+
+/* ---------- exam map and diagnostic ---------- */
+const dl=(...n)=>n.map(i=>`<a href="#day-${i}">Day ${i}</a>`).join(", ");
+const wl=(...ids)=>ids.map(id=>`<a href="#words-${id}">${esc(LISTS.find(L=>L.id===id).t)}</a>`).join(", ");
+const EX=[
+["Reading and Use of English","1 · Multiple-choice cloze","Collocation, fixed phrases, near-synonyms",dl(1,2,3)+"; "+wl("chunks","intens")],
+["","2 · Open cloze","Grammar words: prepositions, linkers, parts of fixed phrases",dl(4,5,6,7)+"; "+wl("preps")],
+["","3 · Word formation","Prefixes, suffixes and whole word families",wl("forms","adj")],
+["","4 · Key word transformation","Rephrasing with a given word in 3–8 words, 2 marks each","The drills on every day"],
+["","5–7 · Reading","Long texts: attitude, implication, how a text holds together",dl(12,13,15)+"; "+wl("nouns","stance")],
+["Writing","1 · Essay","Summarise and evaluate two short texts, 240–280 words",dl(8,13,14)+"; "+wl("stance","verbs")],
+["","2 · Article, letter, report or review","One task from a choice, 280–320 words, right register",dl(16,17,18)],
+["Listening","4 parts","Attitude, opinion, gist and detail in natural speech",dl(10,15,19)+" (use Listen on each passage); "+wl("phrasal")],
+["Speaking","3 parts, in pairs","Discussing, speculating, organising a long turn","The speaking rehearsal on every day; "+dl(5,8,16)]];
+document.querySelector("#examt tbody").innerHTML=EX.map(r=>`<tr><td data-l="Paper"><b>${esc(r[0])}</b></td><td data-l="Part">${esc(r[1])}</td><td data-l="Tests">${esc(r[2])}</td><td data-l="Train with">${r[3]}</td></tr>`).join("");
+function renderDiag(){
+  SKK.forEach(k=>{$("s-"+k).value=S.scores&&S.scores[k]?S.scores[k]:""});
+  const out=$("diagout");
+  if(!S.scores||!SKK.some(k=>S.scores[k])){out.innerHTML="";return}
+  const w=weakest(),lo=140,hi=230,pc=v=>Math.max(0,Math.min(100,(v-lo)/(hi-lo)*100));
+  out.innerHTML=`<div style="margin-top:18px">${SKK.filter(k=>S.scores[k]).map(k=>`<div class="sk ${w.includes(k)?"weak":""}"><span>${SK[k].n}</span><span class="t"><i style="width:${pc(S.scores[k])}%"></i><s style="left:${pc(200)}%"></s></span><span>${S.scores[k]}</span></div>`).join("")}
+  <p class="hint" style="margin:6px 0 0">Scale from 140 to 230; the gold line marks 200, where C2 begins.</p>
+  ${w.length?`<p style="margin:14px 0 0"><b>Focus on ${w.map(k=>SK[k].n).join(" and ")}.</b> ${w.map(k=>`${SK[k].n}: ${dl(...SK[k].days)}; ${wl(...SK[k].lists)}.`).join(" ")} These days are marked with a gold dot on the theatre, and the lists say "focus".</p>`:`<p class="hint">Enter at least two skills to get a focus.</p>`}</div>`;
+}
+$("diagf").addEventListener("submit",e=>{e.preventDefault();const s={};SKK.forEach(k=>{const v=parseInt($("s-"+k).value,10);if(v>=80&&v<=230)s[k]=v});S.scores=s;save();renderDiag()});
+$("dclear").addEventListener("click",()=>{S.scores=null;save();renderDiag()});
+
+/* ---------- check-up tests ---------- */
+const TESTS={
+A:{kwt:[
+["I'd never have found the house without your directions.","HAD","___ your directions, I'd never have found the house.",["had it not been for","had you not given me"],[["had it not","had you not"],["been for","given me"]]],
+["People believe that an insider stole the painting.","BELIEVED","The painting ___ stolen by an insider.",["is believed to have been"],[["is believed"],["to have been"]]],
+["She only realised how serious it was when the doctor phoned.","DID","Only when the doctor phoned ___ how serious it was.",["did she realise","did she realize","did she understand"],[["did she"],["realise","realize","understand"]]],
+["It doesn't matter how hard you try; you won't persuade him.","HOWEVER","You won't persuade him, ___.",["however hard you try","however hard you may try"],[["however hard"],["you try","you may try"]]],
+["He was so rude that we decided to leave.","WAS","Such ___ that we decided to leave.",["was his rudeness"],[["was his"],["rudeness"]]],
+["The report claims the minister knew nothing about the deal.","ALLEGEDLY","The minister ___ about the deal.",["allegedly knew nothing","had allegedly known nothing","allegedly had known nothing"],[["allegedly"],["knew nothing","known nothing"]]]],
+mc:[
+["The new evidence ___ serious doubt on his version of events.",["cast","made","put","gave"]],
+["After months of talks, the two sides finally reached a ___.",["consensus","unity","harmony","concord"]],
+["The decision was taken ___ the interests of public safety.",["in","for","on","by"]],
+["His argument simply doesn't ___ water.",["hold","keep","carry","bear"]],
+["We need to ___ a balance between cost and quality.",["strike","hit","beat","set"]],
+["Small firms will ___ the brunt of the new tax.",["bear","hold","keep","suffer"]],
+["The attack was ___ condemned by all parties.",["roundly","fully","highly","deeply"]],
+["I was ___ tempted to walk out of the meeting.",["sorely","heavily","widely","highly"]],
+["The latest figures ___ out our theory.",["bear","hold","carry","back"]],
+["It ___ to reason that tired drivers are more dangerous.",["stands","goes","holds","makes"]]]},
+B:{kwt:[
+["If it weren't for the rain, we'd go for a walk.","NOT","Were ___, we'd go for a walk.",["it not for the rain"],[["it not"],["for the rain"]]],
+["Experts think that the fire started in the kitchen.","THOUGHT","The fire ___ started in the kitchen.",["is thought to have"],[["is thought"],["to have"]]],
+["As soon as I arrived, the phone rang.","HARDLY","___ when the phone rang.",["hardly had i arrived"],[["hardly had"],["i arrived"]]],
+["It was such an awful film that we left early.","WAS","So ___ that we left early.",["awful was the film","bad was the film","dreadful was the film","terrible was the film"],[["awful","bad","dreadful","terrible"],["was the film"]]],
+["I regret not having studied harder.","WISH","I ___ harder.",["wish i had studied","wish that i had studied"],[["wish"],["had studied"]]],
+["She was exhausted, but she still finished the race.","AS","Exhausted ___ still finished the race.",["as she was she","as she was, she"],[["as she was"],["she"]]]],
+mc:[
+["The proposal ___ a threat to hundreds of local jobs.",["poses","makes","does","gives"]],
+["The captain ___ the blame for the team's defeat.",["shouldered","lifted","raised","held"]],
+["Prices rose ___ tandem with wages.",["in","on","at","by"]],
+["His silence was ___ to an admission of guilt.",["tantamount","alike","likely","prone"]],
+["Oil companies have a ___ interest in the outcome of the debate.",["vested","invented","invested","inserted"]],
+["In the ___ of the scandal, the minister resigned.",["wake","trail","path","track"]],
+["The talks are on the ___ of collapse.",["verge","rim","border","margin"]],
+["Young children are particularly ___ to infection.",["susceptible","sensible","receptive","suggestive"]],
+["We cannot ___ out the possibility of further delays.",["rule","count","leave","shut"]],
+["I'm not ___ to taking the occasional risk.",["averse","adverse","opposite","contrary"]]]}};
+let T=null,tTimer=null;
+const LIMIT=20*60;
+const fmt=s=>Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+function renderCheckup(){
+  const box=$("cbox");
+  if(T&&!T.done){
+    const F=TESTS[T.form];
+    box.innerHTML=`<div class="timer"><b id="tclock">${fmt(Math.max(0,LIMIT-T.el))}</b> <span>left · Form ${T.form}</span><button class="main" id="tsub">Finish and mark</button></div>
+    <h3>Part 1: key word transformations</h3><p class="hint">Use the word given, unchanged, in 3 to 8 words. 2 marks each.</p>
+    ${F.kwt.map((q,j)=>`<div class="dr"><p>${j+1}. ${esc(q[0])}</p><span class="kw">${esc(q[1])}</span><p>${esc(q[2]).replace("___","<strong>______</strong>")}</p><input type="text" id="tk${j}" aria-label="Answer ${j+1}" autocomplete="off" spellcheck="false" value="${esc(T.ans["k"+j]||"")}"></div>`).join("")}
+    <h3 style="margin-top:24px">Part 2: vocabulary in context</h3><p class="hint">Choose the word that best fits. 1 mark each.</p>
+    ${F.mc.map((q,j)=>`<div class="dr"><p>${j+1}. ${esc(q[0]).replace("___","<strong>______</strong>")}</p><div class="opts">${T.order[j].map(o=>`<button data-tm="${j}:${o}" class="${T.ans["m"+j]===o?"on":""}">${esc(q[1][o])}</button>`).join("")}</div></div>`).join("")}
+    <div class="row" style="margin-top:16px"><button class="main" id="tsub2">Finish and mark</button><button id="tquit">Abandon</button></div>`;
+    return;
+  }
+  const res=T&&T.done?T.res:null,F=T?TESTS[T.form]:null;
+  const last=f=>S.tests.filter(t=>t.form===f).slice(-1)[0];
+  const A=last("A"),B=last("B");
+  box.innerHTML=`${res?`<div class="card"><div class="kick">Form ${T.form} result</div><div class="big">${res.kwt+res.mc} of 22 (${Math.round((res.kwt+res.mc)/22*100)}%)</div><p style="margin:0">Transformations ${res.kwt} of 12 · vocabulary ${res.mc} of 10 · time ${fmt(res.secs)}</p>
+    <details style="margin-top:12px"><summary>Review answers</summary>${F.kwt.map((q,j)=>`<p><b>${j+1}.</b> ${esc(q[2]).replace("___","<s>"+esc(q[3][0])+"</s>")} <span class="hint">You: ${esc(res.k[j].a||"(blank)")} · ${res.k[j].m}/2</span></p>`).join("")}${F.mc.map((q,j)=>`<p><b>${j+1}.</b> ${esc(q[0]).replace("___","<s>"+esc(q[1][0])+"</s>")} <span class="hint">${res.m[j]===0?"Right":"You chose: "+(res.m[j]===null?"nothing":esc(q[1][res.m[j]]))}</span></p>`).join("")}</details></div>`:""}
+  <div class="forms">
+    <div class="dr"><h3>Form A: before you start</h3><p>Take it before day 1, so you have a baseline.</p><p class="hint">${A?`Last score: ${A.kwt+A.mc} of 22, on ${esc(A.date)}`:"Not taken yet"}</p><button class="main" data-tstart="A">${A?"Retake Form A":"Start Form A"}</button></div>
+    <div class="dr"><h3>Form B: after day 20</h3><p>Same format and similar difficulty, with different questions.</p><p class="hint">${B?`Last score: ${B.kwt+B.mc} of 22, on ${esc(B.date)}`:"Not taken yet"}</p><button data-tstart="B">${B?"Retake Form B":"Start Form B"}</button></div>
+  </div>
+  ${A&&B?`<p class="pareto"><b>Change: ${B.kwt+B.mc-(A.kwt+A.mc)>=0?"+":""}${B.kwt+B.mc-(A.kwt+A.mc)} marks</b> (transformations ${B.kwt-A.kwt>=0?"+":""}${B.kwt-A.kwt}, vocabulary ${B.mc-A.mc>=0?"+":""}${B.mc-A.mc}). A guide to your progress, not a Cambridge score.</p>`:""}
+  ${S.tests.length?`<h3 style="margin-top:24px">History</h3><table><thead><tr><th>Date</th><th>Form</th><th style="text-align:right">Transf.</th><th style="text-align:right">Vocab</th><th style="text-align:right">Total</th></tr></thead><tbody>${S.tests.slice().reverse().map(t=>`<tr><td>${esc(t.date)}</td><td>${esc(t.form)}</td><td style="text-align:right">${t.kwt}/12</td><td style="text-align:right">${t.mc}/10</td><td style="text-align:right"><b>${t.kwt+t.mc}/22</b></td></tr>`).join("")}</tbody></table>`:""}`;
+}
+function startTest(f){
+  T={form:f,ans:{},el:0,done:false,order:TESTS[f].mc.map(q=>shuffle(q[1].map((_,o)=>o)))};
+  clearInterval(tTimer);
+  tTimer=setInterval(()=>{if(!T||T.done){clearInterval(tTimer);return}T.el++;const c=$("tclock");if(c)c.textContent=fmt(Math.max(0,LIMIT-T.el));if(T.el>=LIMIT)finishTest()},1000);
+  renderCheckup();$("cbox").scrollIntoView({block:"start"});
+}
+function finishTest(){
+  if(!T||T.done)return;clearInterval(tTimer);
+  const F=TESTS[T.form];
+  F.kwt.forEach((_,j)=>{const el=$("tk"+j);if(el)T.ans["k"+j]=el.value});
+  const k=F.kwt.map((q,j)=>{const a=T.ans["k"+j]||"",r=autoMark(q,a);return {a,m:r?r.m:0}});
+  const m=F.mc.map((_,j)=>T.ans["m"+j]===undefined?null:T.ans["m"+j]);
+  const res={kwt:k.reduce((s,x)=>s+x.m,0),mc:m.filter(x=>x===0).length,secs:T.el,k,m};
+  T.done=true;T.res=res;
+  S.tests.push({form:T.form,date:dayStr(),kwt:res.kwt,mc:res.mc,secs:res.secs});save();
+  renderCheckup();$("cbox").scrollIntoView({block:"start"});
+}
+$("cbox").addEventListener("click",e=>{
+  const t=e.target.closest("button");if(!t)return;
+  if(t.dataset.tstart)startTest(t.dataset.tstart);
+  else if(t.dataset.tm){const [j,o]=t.dataset.tm.split(":").map(Number);T.ans["m"+j]=o;t.parentNode.querySelectorAll("button").forEach(b=>b.classList.toggle("on",b===t))}
+  else if(t.id==="tsub"||t.id==="tsub2")finishTest();
+  else if(t.id==="tquit"){clearInterval(tTimer);T=null;renderCheckup()}
+});
+$("cbox").addEventListener("input",e=>{const m=/^tk(\d+)$/.exec(e.target.id);if(m&&T)T.ans["k"+m[1]]=e.target.value});
+
+/* ---------- backup ---------- */
+$("bcopy").addEventListener("click",()=>{const out=$("bmsg");const txt=JSON.stringify(S);
+  if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(()=>{out.textContent="Backup copied. Paste it into a note or email to yourself."}).catch(()=>{$("bbox").value=txt;out.textContent="Couldn't copy automatically: the backup is in the box below; select it and copy."});
+  else{$("bbox").value=txt;out.textContent="The backup is in the box below; select it and copy."}});
+$("brest").addEventListener("click",()=>{const out=$("bmsg");try{const r=JSON.parse($("bbox").value);if(!r||typeof r!=="object"||!r.done)throw 0;S=Object.assign(blank(),r);save();out.textContent="Restored. Your days, words, writing and tests are back.";route()}catch(e){out.textContent="That doesn't look like a Wooden O backup. Paste the whole text you copied."}});
+
+/* ---------- routing ---------- */
+const VIEWS=["bootcamp","words","phrases","checkup","exam","method"];
+function route(){
+  const h=location.hash.slice(1);let v="bootcamp",m;
+  if((m=/^day-(\d+)$/.exec(h))){const n=+m[1]-1;if(n>=0&&n<N)cur=n}
+  else if((m=/^words(?:-(\w+))?$/.exec(h))){v="words";if(m[1]&&LISTS.some(L=>L.id===m[1])&&m[1]!==curList){curList=m[1];wq="";wf="all";prac=null}}
+  else if(VIEWS.includes(h))v=h;
+  view=v;
+  VIEWS.forEach(x=>{$("v-"+x).hidden=x!==v});
+  document.querySelectorAll("nav.tabs a").forEach(a=>{if(a.dataset.v===v)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current")});
+  if(TTS&&sayBtn)TTS.stop();
+  if(v==="bootcamp"){renderDay();drawGlobe()}
+  else if(v==="words"){renderMenu();renderList()}
+  else if(v==="phrases")renderPhrases();
+  else if(v==="exam")renderDiag();
+  else if(v==="checkup")renderCheckup();
+  showSave();
+}
+addEventListener("hashchange",()=>{route();scrollTo(0,0)});
+route();
+}
+</script>
+<script>
+/* offline support when installed on a phone; skipped where the page runs inside a frame (claude.ai) */
+try{if("serviceWorker" in navigator&&window.top===window&&location.protocol==="https:")navigator.serviceWorker.register("sw.js").catch(()=>{})}catch(e){}
+</script>
+</body>
+</html>

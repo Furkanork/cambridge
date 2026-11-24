@@ -1,0 +1,23 @@
+{
+  "name": "The Wooden O: C2 English Bootcamp",
+  "short_name": "Wooden O",
+  "description": "A twenty-day C2 English bootcamp: exam-format drills, 80/20 word lists with spaced review, and a passage of Shakespeare every day.",
+  "id": "./",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#6e0f22",
+  "theme_color": "#6e0f22",
+  "lang": "en",
+  "categories": ["education"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Review due cards", "url": "./#words", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] },
+    { "name": "Check-up test", "url": "./#checkup", "icons": [{ "src": "icons/icon-192.png", "sizes": "192x192" }] }
+  ]
+}
