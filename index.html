@@ -46,7 +46,6 @@ h1{font-size:clamp(36px,5vw,52px);line-height:1.05;letter-spacing:-.01em;margin:
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .chips span{border:1px solid #ffffff55;border-radius:999px;padding:4px 12px;font-size:14px;white-space:nowrap}
 nav.tabs{display:flex;gap:4px;margin-top:22px;overflow-x:auto;scrollbar-width:none}
-@media(max-width:600px){nav.tabs{flex-wrap:wrap;gap:6px;padding-bottom:12px;overflow:visible}nav.tabs a{padding:10px 14px;border-radius:999px;border:1px solid #ffffff55;font-size:15px;min-height:44px;display:flex;align-items:center}nav.tabs a[aria-current=page]{border-color:var(--bg)}}
 .lab{border-top:2px solid var(--ink);padding:18px 0 28px}
 .lab .txt p{max-width:68ch}
 .lq{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
@@ -179,6 +178,7 @@ button.on{background:var(--ox);color:#fff}
 .forms{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
 .opts button.on{background:var(--ox);color:#fff;border-color:var(--ox)}
 summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:center}
+@media(max-width:600px){.top{padding-bottom:16px}nav.tabs{flex-wrap:wrap;gap:6px;overflow:visible}nav.tabs a{padding:8px 14px;border-radius:999px;border:1px solid #ffffff66;font-size:15px;min-height:44px;display:flex;align-items:center}nav.tabs a[aria-current=page]{border-color:#fff}}
 [hidden]{display:none!important}
 @media(max-width:899px){.two{grid-template-columns:minmax(0,1fr)}.globe{max-width:330px}.acts{max-width:440px;margin-inline:auto}.menu{grid-auto-flow:column;grid-auto-columns:minmax(200px,1fr);overflow-x:auto;padding-bottom:6px}}
 @media(max-width:600px){.ex{grid-template-columns:minmax(0,1fr)}.opts{grid-template-columns:minmax(0,1fr)}.verse{font-size:19px;padding:14px 16px}table{font-size:15px}.stack thead{display:none}.stack tr{display:grid;padding-block:10px;border-bottom:1px solid var(--line)}.stack td{display:flex;justify-content:space-between;gap:12px;border:0;padding:3px 0;text-align:left;width:auto}.stack td::before{content:attr(data-l);color:var(--soft);font-size:13px;font-weight:600;flex:none;width:6.5em}.stack td.w{white-space:normal}}
