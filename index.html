@@ -46,6 +46,20 @@ h1{font-size:clamp(36px,5vw,52px);line-height:1.05;letter-spacing:-.01em;margin:
 .chips{display:flex;gap:8px;flex-wrap:wrap}
 .chips span{border:1px solid #ffffff55;border-radius:999px;padding:4px 12px;font-size:14px;white-space:nowrap}
 nav.tabs{display:flex;gap:4px;margin-top:22px;overflow-x:auto;scrollbar-width:none}
+@media(max-width:600px){nav.tabs{flex-wrap:wrap;gap:6px;padding-bottom:12px;overflow:visible}nav.tabs a{padding:10px 14px;border-radius:999px;border:1px solid #ffffff55;font-size:15px;min-height:44px;display:flex;align-items:center}nav.tabs a[aria-current=page]{border-color:var(--bg)}}
+.lab{border-top:2px solid var(--ink);padding:18px 0 28px}
+.lab .txt p{max-width:68ch}
+.lq{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:12px 0}
+.lq p{margin:0 0 8px;font-weight:600}
+.lq label{display:flex;gap:10px;align-items:flex-start;padding:8px 6px;border-radius:8px;cursor:pointer;min-height:44px}
+.lq label:hover{background:var(--oxt)}
+.lq input{width:20px;height:20px;margin-top:3px;accent-color:var(--ox);flex:none}
+.lq label.right{background:color-mix(in srgb,var(--ok) 16%,transparent)}
+.lq label.wrong{text-decoration:line-through;opacity:.7}
+.recall{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.recall>div{border:1px dashed var(--wood);border-radius:10px;padding:12px 14px}
+.recall b{display:block;font-size:17px}
+.recall small{color:var(--soft)}
 nav.tabs a{flex:none;color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:10px 10px 0 0;min-height:44px}
 nav.tabs a:hover{background:#ffffff1f}
 nav.tabs a[aria-current=page]{background:var(--bg);color:var(--oxi)}
@@ -184,6 +198,7 @@ summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:
     <a href="#bootcamp" data-v="bootcamp">Bootcamp</a>
     <a href="#words" data-v="words">80/20 word lists</a>
     <a href="#phrases" data-v="phrases">Phrasebook</a>
+    <a href="#lab" data-v="lab">Reading lab</a>
     <a href="#checkup" data-v="checkup">Check-up</a>
     <a href="#exam" data-v="exam">C2 exam map</a>
     <a href="#method" data-v="method">How to study</a>
@@ -247,6 +262,15 @@ summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:
     </section>
     <div class="scroll"><table class="stack" id="examt"><thead><tr><th>Paper</th><th>Part</th><th>What it tests</th><th>Train with</th></tr></thead><tbody></tbody></table></div>
     <p class="note">Timings: Reading and Use of English 1 h 30; Writing 1 h 30; Listening about 40 min; Speaking 16 min, taken in pairs. Check the current handbook on the Cambridge English website before you book.</p>
+    <h2 style="margin-top:40px">The writing formats, side by side</h2>
+    <p class="focus">Examiners mark whether your text works as the format it claims to be. The same ideas written as a report and as an article should look and sound different.</p>
+    <div class="grid3" id="genres"></div>
+  </div>
+
+  <div id="v-lab" hidden>
+    <h2>Reading and listening lab</h2>
+    <p class="focus">Three original texts in the style of Reading Part 5: an argument with attitude, implication and structure to track. Each has four questions. On claude.ai you can listen first with the text hidden, which turns it into listening practice.</p>
+    <div id="labbox"></div>
   </div>
 
   <div id="v-method" hidden>
@@ -260,7 +284,18 @@ summary{cursor:pointer;font-weight:600;min-height:44px;display:flex;align-items:
         <p><b>Use it within 48 hours.</b> Recognising a word is not the same as owning it. Put each new item into a sentence of your own in that day's writing task.</p>
         <p><b>Review on a schedule.</b> Go back to new items after 1, 3, 7 and 21 days. The word lists do this for you: every item you meet joins a review queue, comes back after 1, 3, 7 and 21 days, and drops back to the start if you miss it. Clear "Review due cards" each day and the schedule takes care of itself.</p>
         <h3>Reading Shakespeare without pain</h3>
-        <p>Read the passage aloud twice: once for sense, once for rhythm. Then read the note. Don't translate word by word; look for the move the speaker makes, such as a contrast, a list of three or a slow build. Free annotated texts are on the Folger Shakespeare Library website (folger.edu).</p>
+        <p>Read the passage aloud twice: once for sense, once for rhythm. Then read the note. Don't translate word by word; look for the move the speaker makes, such as a contrast, a list of three or a slow build. Free annotated texts are on the Folger Shakespeare Library website (folger.edu), where you can read the whole scene around any passage.</p>
+        <p>Most of the strangeness is a small set of old forms. Learn these and the passages open up:</p>
+        <div class="scroll"><table class="stack"><thead><tr><th>Old form</th><th>Today</th><th>In the bootcamp</th></tr></thead><tbody>
+          <tr><td data-l="Old form"><b>thou, thee, thy, thine</b></td><td data-l="Today">you (subject), you (object), your, yours. Thine also means your before a vowel. Thou was the informal, intimate you</td><td data-l="In the bootcamp">"to thine own self be true" (day 8)</td></tr>
+          <tr><td data-l="Old form"><b>art, hast, dost, wilt</b></td><td data-l="Today">are, have, do, will, used with thou</td><td data-l="In the bootcamp">"Thou art more lovely" (day 19)</td></tr>
+          <tr><td data-l="Old form"><b>-eth, doth, hath</b></td><td data-l="Today">the -s ending: does, has</td><td data-l="In the bootcamp">"It droppeth as the gentle rain" (day 11)</td></tr>
+          <tr><td data-l="Old form"><b>'tis, 'twas, 'em</b></td><td data-l="Today">it is, it was, them</td><td data-l="In the bootcamp">"Whether 'tis nobler" (day 6)</td></tr>
+          <tr><td data-l="Old form"><b>verb + not</b></td><td data-l="Today">don't + verb</td><td data-l="In the bootcamp">"Be not afraid of greatness" (day 9)</td></tr>
+          <tr><td data-l="Old form"><b>wherefore, ere, oft, anon</b></td><td data-l="Today">why, before, often, soon. "Wherefore art thou Romeo?" asks why, not where</td><td data-l="In the bootcamp">"loan oft loses both itself and friend" (day 8)</td></tr>
+          <tr><td data-l="Old form"><b>moved word order</b></td><td data-l="Today">object or verb pulled forward for rhythm; put it back in modern order</td><td data-l="In the bootcamp">"Neither a borrower nor a lender be" (day 8)</td></tr>
+          <tr><td data-l="Old form"><b>false friends</b></td><td data-l="Today">wit = intelligence, mark = notice, brave = splendid, strained = forced, apprehension = understanding</td><td data-l="In the bootcamp">"brevity is the soul of wit" (day 17)</td></tr>
+        </tbody></table></div>
         <h3>A week, end to end</h3>
         <p>Do days on Monday to Friday, four days per act. On Saturday, redo any drill you missed and take one gap quiz per list. On Sunday, read one long article (a Guardian long read, The Economist, the London Review of Books) and note five chunks from it.</p>
       </div>
@@ -582,6 +617,7 @@ const firstOpen=()=>{for(let i=0;i<N;i++)if(!S.done[i])return i;return N-1};
 cur=firstOpen();
 const SEQ=[];{const mx=Math.max(...LISTS.map(L=>L.items.length));for(let r=0;r<mx;r++)for(const L of LISTS)if(L.items[r])SEQ.push([L,r])}
 const today=d=>SEQ.slice(d*6,d*6+6);
+function recallHtml(){const back=[1,3,7].map(n=>cur-n).filter(d=>d>=0);if(!back.length)return "";return `<section class="blk"><h3>Recall from earlier days</h3><p class="hint" style="margin:-4px 0 10px">Before you look: say what each one means and use it in a sentence. Then tap to check.</p><div class="recall">${back.map(d=>{const x=D[d].x[(cur+d)%4];return `<div><small>Day ${d+1}</small><b>${esc(x[0])}</b><details><summary>Check</summary><p style="margin:4px 0 0">${esc(x[2])}</p><p class="hint" style="margin:4px 0 0">${esc(x[3])}</p></details></div>`}).join("")}</div></section>`}
 const dayPts=d=>Object.values(S.pts[d]||{}).reduce((a,b)=>a+b,0);
 
 const globe=$("globe");
@@ -623,6 +659,7 @@ function renderDay(){
   <h2>${esc(d.t)}</h2><p class="focus">${esc(d.f)}</p>
   <section class="blk"><div class="row" style="justify-content:space-between;margin-bottom:12px"><h3 style="margin:0">The passage</h3><button class="sm" data-cap="tts" data-say="verse" hidden>Listen</button></div><blockquote class="verse">${esc(d.v)}</blockquote><p class="src">${esc(d.s)}</p><p class="gloss">${esc(d.g)}</p></section>
   <section class="blk"><h3>Expressions to own</h3><div class="ex">${d.x.map(e=>`<div><b>${esc(e[0])}</b>${e[1]?`<em>From ${esc(e[1])}</em>`:""}<p>${esc(e[2])}</p><q>${esc(e[3])}</q></div>`).join("")}</div></section>
+  ${recallHtml()}
   <section class="blk"><h3>Today's six words</h3><p class="hint" style="margin:-4px 0 10px">The next six items from the 80/20 lists, most useful first. They join your review queue today; tick one only if you could already use it in a sentence.</p>
   <table class="stack"><thead><tr><th>Item</th><th>Meaning</th><th>List</th><th>Known</th></tr></thead><tbody>${today(cur).map(([L,i])=>{const it=L.items[i],k=kid(L,i);return `<tr class="${S.known[k]?"known":""}"><td class="w" data-l="Item">${esc(it[0])}${isCore(L,i)?'<span class="core">core</span>':""}</td><td data-l="Meaning">${esc(it[1])}</td><td data-l="List"><a href="#words-${L.id}">${esc(L.t)}</a></td><td class="c" data-l="Known"><input type="checkbox" data-k="${k}" ${S.known[k]?"checked":""} aria-label="I know ${esc(it[0])}"></td></tr>`}).join("")}</tbody></table></section>
   <section class="blk"><h3>Drills</h3><p class="hint" style="margin:-4px 0 12px">Cambridge-style: complete the second sentence so it means the same as the first, using the word given, unchanged, in 3 to 8 words (contractions count as two). As in the exam, each answer has two parts worth 1 mark each.</p>
@@ -632,7 +669,7 @@ function renderDay(){
   <section class="blk"><h3>Rehearsal: writing</h3><p style="margin:0 0 10px">${esc(d.k)}</p>
   <textarea id="note${cur}" aria-label="Your writing for day ${cur+1}" placeholder="Write here. It is saved in this browser as you type.">${esc(S.notes[cur]||"")}</textarea><div class="wc" id="wc"></div>
   <div class="row" style="margin-top:10px"><button class="main" id="wfbb" data-cap="sample" hidden>Get feedback from Claude</button><span class="hint" data-nocap="sample">Feedback from Claude appears here when you open the page on claude.ai.</span></div>
-  <div class="aiout" id="wfb" aria-live="polite"></div></section>
+  <div class="aiout" id="wfb" aria-live="polite"></div><p class="note" data-cap="sample" hidden>Claude's marks are an estimate, not a Cambridge score, and can differ a little between tries. Use the corrections more than the numbers.</p></section>
   <section class="blk"><h3>Rehearsal: speaking</h3><p style="margin:0 0 4px"><b>${esc(SPEAK[cur])}</b></p><p class="hint" style="margin:0 0 10px">Talk for about two minutes, as in the Speaking long turn. Your words appear below; you can tidy them before asking for feedback.</p>
   <div class="row" style="margin-bottom:10px"><button class="main" id="mic" data-cap="dictation" hidden>Speak your answer</button><span class="hint" data-nocap="dictation">No microphone here: type what you would say instead.</span></div>
   <textarea id="sp${cur}" aria-label="Transcript of your spoken answer" placeholder="Your spoken answer, as text.">${esc(S.speech[cur]||"")}</textarea><div class="wc" id="swc"></div>
@@ -695,7 +732,7 @@ scene.addEventListener("click",e=>{
   else if(t.dataset.say==="verse")say(d.v.replace(/\n/g," "),t);
   else if(t.id==="mic"){if(!DIC)return;if(t.classList.contains("on"))DIC.stop().catch(()=>{});else DIC.start().catch(()=>{})}
   else if(t.id==="wfbb"){const txt=$("note"+cur).value.trim();const out=$("wfb");if(txt.split(/\s+/).length<30){out.textContent="Write at least 30 words first, so there is something to assess.";return}
-    ask(`You are an experienced Cambridge C2 Proficiency writing examiner. The learner scored 191 overall on the Cambridge English Scale and is aiming for C2.
+    ask(`You are an experienced Cambridge C2 Proficiency writing examiner. The learner is preparing for C2 Proficiency. Judge only the text in front of you.
 Task: ${d.k}
 Target expressions today: ${d.x.map(x=>x[0]).join("; ")}
 Learner's text:
@@ -775,7 +812,7 @@ function renderPrac(){
     ${p.shown?`<p style="margin:0 0 4px"><b>${esc(it[1])}</b></p><p class="hint" style="margin:0 0 14px">${esc(it[2])}</p><div class="row"><button class="main" id="fyes">I knew it</button><button id="fno">Not yet</button><button class="sm" data-cap="tts" data-sayc="1" hidden>Listen</button><button id="pend">Stop</button></div>`
     :`<p class="hint">Say the meaning and an example of your own, then turn the card.</p><div class="row"><button class="main" id="fshow">Turn card</button><button id="pend">Stop</button></div>`}</div>`;
   }else{
-    if(!p.opts){const pool=shuffle(L.items.map((_,j)=>j).filter(j=>j!==i)).slice(0,3);p.opts=shuffle(pool.concat(i))}
+    if(!p.opts){const wc=s=>s.trim().split(/\s+/).length,n=wc(it[0]),all=shuffle(L.items.map((_,j)=>j).filter(j=>j!==i));const same=all.filter(j=>wc(L.items[j][0])===n),near=all.filter(j=>Math.abs(wc(L.items[j][0])-n)===1),rest=all.filter(j=>Math.abs(wc(L.items[j][0])-n)>1);p.opts=shuffle(same.concat(near,rest).slice(0,3).concat(i))}
     const re=new RegExp(it[0].replace(/[.*+?^${}()|[\]\\]/g,"\\$&"),"i");
     const gap=esc(it[2].replace(re,"\u0000")).replace("\u0000","<strong>________</strong>");
     box.innerHTML=`<div class="card"><div class="kick">Question ${p.pos+1} of ${p.deck.length} · ${p.right} right</div><p class="gap">${gap}</p>
@@ -938,8 +975,68 @@ $("bcopy").addEventListener("click",()=>{const out=$("bmsg");const txt=JSON.stri
   else{$("bbox").value=txt;out.textContent="The backup is in the box below; select it and copy."}});
 $("brest").addEventListener("click",()=>{const out=$("bmsg");try{const r=JSON.parse($("bbox").value);if(!r||typeof r!=="object"||!r.done)throw 0;S=Object.assign(blank(),r);save();out.textContent="Restored. Your days, words, writing and tests are back.";route()}catch(e){out.textContent="That doesn't look like a Wooden O backup. Paste the whole text you copied."}});
 
+/* ---------- writing formats ---------- */
+const GENRES=[
+["Essay (Part 1, compulsory)","240–280 words","Summarise and evaluate the key points of two short texts, and give your own view.","Formal and impersonal","Introduction · text one's key point and your evaluation · text two's · your conclusion","Paraphrase, never copy; compare the writers (both concur, the second takes issue with); weigh rather than list.","While both writers acknowledge the appeal of tourism, they differ sharply on who bears its costs."],
+["Article","280–320 words","Engage magazine or website readers while making a point.","Semi-formal and lively","Catchy title · hook · three or four paragraphs with one clear line of thought · memorable ending","Direct address, a rhetorical question, a vivid example, varied sentence length.","Ask anyone over forty what they miss about childhood, and you will rarely hear the word screen."],
+["Letter (formal)","280–320 words","Respond, complain or persuade an editor, a council or an organisation.","Formal and polite, firm where needed","Reason for writing · points with support · what you want done · courteous close","Hedging, concession then counter-argument, a clear request.","I am writing in response to your article of 3 May, which, while thought-provoking, overlooks one crucial point."],
+["Report","280–320 words","Inform a manager or committee and recommend action.","Formal and impersonal","Title · aim · headings for each area · findings · recommendations","Passive voice, nominalisation, cautious language (it would appear that), clear headings.","The aim of this report is to evaluate the new library scheme and to recommend improvements."],
+["Review","280–320 words","Describe and evaluate something for readers deciding whether to try it.","Semi-formal, opinionated","Hook · brief context · evaluation of two or three aspects · recommendation, and for whom","Precise adjectives, understatement, a verdict that names its audience.","Rarely does a debut novel arrive so fully formed."]];
+$("genres").innerHTML=GENRES.map(g=>`<div><b>${esc(g[0])}</b><em>${esc(g[1])}</em><p><strong>Purpose:</strong> ${esc(g[2])}</p><p><strong>Register:</strong> ${esc(g[3])}</p><p><strong>Shape:</strong> ${esc(g[4])}</p><p><strong>Moves examiners notice:</strong> ${esc(g[5])}</p><p class="q">"${esc(g[6])}"</p></div>`).join("");
+
+/* ---------- reading and listening lab ---------- */
+const LAB=[
+{id:"phrases",t:"The phrases that outlived their plays",p:[
+"Most people who describe jealousy as a \"green-eyed monster\" have never read Othello, and would be surprised to learn that they are quoting a villain. This is the curious afterlife of Shakespeare's language: phrases detached from their speakers and their scenes, circulating freely in conversations their author could never have imagined.",
+"What allows a phrase to survive in this way? Not, I think, profundity. Many of the plays' most searching lines have stayed firmly on the page. The phrases that escape are the portable ones. A good phrase, like a good tool, fits the hand: it is short, vivid and useful in a hundred situations. \"Wild-goose chase\" originally named a kind of horse race in which riders had to follow a leader's erratic course. Hardly anyone knows this today, and the idiom is none the worse for it.",
+"Yet it would be a mistake to conclude that the original context no longer matters. Iago's warning is poisonous precisely because it sounds like sincere advice, offered by a man who is planting the very jealousy he warns against. Read the phrase back into the play and it regains an edge that everyday use has worn away. The learner who knows both lives of a phrase, its origin and its present use, has an advantage over the native speaker who knows only one: they can use it plainly when that is what is wanted, and pointedly when it is not.",
+"There is, admittedly, a risk in this. Quotation can become a substitute for thought, and a writer who reaches for Shakespeare at every turn sounds less like a scholar than a greetings card. The skill lies in restraint. One well-placed allusion, lightly worn, does more than ten."],
+q:[["What does the writer suggest about people who use the phrase \"green-eyed monster\"?",["They are usually unaware of whose words they are repeating.","They often misunderstand what the phrase means.","They use it more accurately than Shakespeare did.","They prefer it to plainer words for jealousy."],"Paragraph 1: they \"would be surprised to learn that they are quoting a villain\"."],
+["The comparison with \"a good tool\" explains why some phrases",["survive because they suit many situations.","lose their original meaning over time.","are remembered because they are profound.","need to be learned in context."],"Paragraph 2: a good phrase is \"useful in a hundred situations\"; profundity is explicitly rejected."],
+["According to the writer, a learner who knows a phrase's origin can",["choose between a neutral and a pointed use of it.","avoid using it in the wrong situations.","understand native speakers more easily.","explain the phrase to others."],"Paragraph 3: \"plainly when that is what is wanted, and pointedly when it is not\"."],
+["In the final paragraph, the writer's attitude to frequent quotation is",["cautious and critical.","mildly amused.","openly hostile.","reluctantly approving."],"\"A risk\", \"a substitute for thought\", \"restraint\": critical, but measured rather than hostile."]]},
+{id:"plateau",t:"Against fluency",p:[
+"Advanced learners often describe a peculiar frustration: the sense of having arrived somewhere without quite knowing where. They can follow a film, argue in a meeting and enjoy a novel, yet something remains just out of reach. The usual diagnosis is vocabulary, and the usual prescription is more words. This, I suspect, is largely mistaken.",
+"What separates a C1 speaker from a C2 speaker is rarely the number of words they know. It is the accuracy with which they use the ones they have: the instinct that \"heavy rain\" is right and \"strong rain\" is not, that \"notwithstanding\" belongs in a contract and not in a text message, that \"I'm not averse to it\" says something subtly different from \"I'd like it\". Such knowledge is acquired less by memorising lists than by noticing, by reading with half an eye on how things are said rather than what is said.",
+"Fluency, paradoxically, can be the enemy here. The fluent learner has learned to keep talking, to paper over gaps with approximations that work well enough. Every approximation that goes unchallenged becomes a little more fixed, and the very ease that once made progress possible now holds it back.",
+"None of this means abandoning fluency for a painful, word-by-word caution. It means building in moments of deliberate attention: rewriting a paragraph to replace every vague verb, reading aloud to hear where a sentence stumbles, asking not \"is this correct?\" but \"is this exactly what I mean?\". The plateau is not a wall. It is a signal to change the kind of work you are doing."],
+q:[["The writer believes the usual explanation for the advanced learner's frustration is",["largely wrong.","partly correct.","unsupported by research.","too optimistic."],"Paragraph 1: \"This, I suspect, is largely mistaken.\""],
+["The examples in the second paragraph illustrate",["the importance of choosing exactly the right expression.","words that advanced learners rarely know.","differences between British and American usage.","the difficulty of formal vocabulary."],"The paragraph is about \"the accuracy with which they use the ones they have\"."],
+["Why does the writer call fluency \"the enemy\"?",["It lets inexact language become habitual.","It makes learners overconfident in exams.","It discourages learners from reading.","Teachers value it too highly."],"Paragraph 3: \"Every approximation that goes unchallenged becomes a little more fixed.\""],
+["What does the writer recommend?",["Regular periods of focused attention to precision.","Slowing down all communication.","Memorising more collocations.","Avoiding approximations entirely."],"Paragraph 4: \"moments of deliberate attention\", explicitly not \"word-by-word caution\"."]]},
+{id:"aloud",t:"The case for reading aloud",p:[
+"Saint Augustine, writing at the end of the fourth century, recorded his surprise at finding Bishop Ambrose reading in silence, his eyes moving over the page while his voice was still. The anecdote is often cited as evidence that silent reading was once a rarity, though historians disagree about how unusual it really was. What is beyond dispute is that we have since swung decisively the other way: outside the classroom, adults almost never read aloud.",
+"For the language learner, this is a loss worth reversing. Reading aloud forces decisions that silent reading allows us to skip. Where does the stress fall? Which word carries the weight of the sentence? Is this clause an aside or the main point? A reader who must speak a sentence cannot glide over its structure; the voice exposes every misunderstanding.",
+"There is a further benefit, harder to measure but familiar to anyone who has tried it. Language read aloud tends to stay. A line of verse spoken a dozen times becomes something one owns rather than something one has merely seen, and its rhythms begin to surface, uninvited, in one's own speech. It is surely no accident that the phrases from Shakespeare that have entered everyday English were written to be heard, not read.",
+"The obvious objection is that reading aloud is slow. It is. But speed was never the point. Ten minutes spent voicing a single demanding paragraph may teach more about how English works than an hour of skimming."],
+q:[["What point does the writer make about the Augustine anecdote?",["Its significance is debated.","It proves that silent reading was unknown.","It is frequently misquoted.","It shows that Ambrose was an unusual scholar."],"Paragraph 1: \"historians disagree about how unusual it really was\"."],
+["According to the writer, reading aloud is useful because it",["makes the reader engage with how a sentence is built.","improves pronunciation more than listening does.","is more enjoyable than silent reading.","helps the reader read faster."],"Paragraph 2: \"cannot glide over its structure\"."],
+["The writer mentions Shakespeare's phrases to support the idea that",["language written to be heard is memorable.","verse is easier to remember than prose.","everyday English has lost its richness.","learners should read more drama."],"Paragraph 3: \"written to be heard, not read\" supports \"Language read aloud tends to stay\"."],
+["How does the writer deal with the objection in the last paragraph?",["By accepting it but arguing it misses the purpose.","By denying that reading aloud is slow.","By proposing a compromise.","By citing research."],"\"It is. But speed was never the point.\""]]}];
+const labOrder={};LAB.forEach(L=>L.q.forEach((q,j)=>{labOrder[L.id+j]=shuffle([0,1,2,3])}));
+const labState={};
+function renderLab(){
+  if(!S.lab)S.lab={};
+  $("labbox").innerHTML=LAB.map(L=>{const st=labState[L.id]||{},hide=st.hidden&&!st.shown;
+    return `<section class="lab" id="lab-${L.id}"><div class="row" style="justify-content:space-between"><h3 style="margin:0">${esc(L.t)}</h3><span class="hint">${S.lab[L.id]!==undefined?`Last score: ${S.lab[L.id]} of 4`:"Not tried yet"}</span></div>
+    <div class="row" style="margin:10px 0"><button class="sm" data-lab="listen:${L.id}" data-cap="tts" hidden>${hide?"Play again":"Listen first, text hidden"}</button>${hide?`<button class="sm" data-lab="show:${L.id}">Show the text</button>`:""}</div>
+    <div class="txt" ${hide?"hidden":""}>${L.p.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+    ${L.q.map((q,j)=>{const pick=st["a"+j],done=st.checked;return `<div class="lq"><p>${j+1}. ${esc(q[0])}</p>${labOrder[L.id+j].map(o=>`<label class="${done?(o===0?"right":pick===o?"wrong":""):""}"><input type="radio" name="${L.id}-${j}" value="${o}" ${pick===o?"checked":""} ${done?"disabled":""}><span>${esc(q[1][o])}</span></label>`).join("")}${done?`<p class="hint" style="font-weight:400;margin:8px 0 0">${esc(q[2])}</p>`:""}</div>`}).join("")}
+    <div class="row">${st.checked?`<b class="tally">${st.score} of 4</b><button data-lab="reset:${L.id}">Try again</button>`:`<button class="main" data-lab="check:${L.id}">Check answers</button>`}</div></section>`}).join("");
+  capOn();
+}
+$("labbox").addEventListener("change",e=>{const m=/^(\w+)-(\d)$/.exec(e.target.name||"");if(m){(labState[m[1]]=labState[m[1]]||{})["a"+m[2]]=+e.target.value}});
+$("labbox").addEventListener("click",e=>{
+  const t=e.target.closest("button[data-lab]");if(!t)return;
+  const [act,id]=t.dataset.lab.split(":"),L=LAB.find(x=>x.id===id),st=labState[id]=labState[id]||{};
+  if(act==="listen"){st.hidden=true;renderLab();const b=document.querySelector(`[data-lab="listen:${id}"]`);if(b)say(L.p.join(" "),b)}
+  else if(act==="show"){st.shown=true;renderLab()}
+  else if(act==="check"){st.checked=true;st.score=L.q.filter((_,j)=>st["a"+j]===0).length;S.lab[id]=st.score;save();renderLab()}
+  else if(act==="reset"){labState[id]={};LAB.find(x=>x.id===id).q.forEach((_,j)=>{labOrder[id+j]=shuffle([0,1,2,3])});renderLab()}
+});
+
 /* ---------- routing ---------- */
-const VIEWS=["bootcamp","words","phrases","checkup","exam","method"];
+const VIEWS=["bootcamp","words","phrases","lab","checkup","exam","method"];
 function route(){
   const h=location.hash.slice(1);let v="bootcamp",m;
   if((m=/^day-(\d+)$/.exec(h))){const n=+m[1]-1;if(n>=0&&n<N)cur=n}
@@ -954,6 +1051,7 @@ function route(){
   else if(v==="phrases")renderPhrases();
   else if(v==="exam")renderDiag();
   else if(v==="checkup")renderCheckup();
+  else if(v==="lab")renderLab();
   showSave();
 }
 addEventListener("hashchange",()=>{route();scrollTo(0,0)});

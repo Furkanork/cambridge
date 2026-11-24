@@ -1,6 +1,6 @@
 // Offline support: the app shell is cached on install; the page itself is fetched fresh
 // when online (so updates arrive) and served from the cache when offline.
-const CACHE = "wooden-o-v1";
+const CACHE = "wooden-o-v2";
 const SHELL = [
   "./",
   "./index.html",

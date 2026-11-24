@@ -11,8 +11,10 @@ A twenty-day bootcamp from a strong C1 towards C2 Proficiency, staged around a p
 - **Bootcamp:** 20 days in five acts. Each day has a passage, four expressions, three key word transformations in real exam format (two parts, 1 mark each), six words from the lists, and a writing and a speaking task.
 - **80/20 word lists:** 205 items in 9 lists, ordered by usefulness, with the top fifth marked as core. Flashcards use spaced review (1, 3, 7 and 21 days), plus a gap quiz.
 - **Phrasebook:** all 80 expressions, searchable, with the Shakespeare source where there is one.
+- **Reading lab:** three original Part 5-style texts with four questions each; on claude.ai they can be played aloud with the text hidden, as listening practice.
 - **Check-up:** Form A before day 1, Form B after day 20, to measure progress (22 marks, 20 minutes).
-- **C2 exam map** and **How to study**, including a skill-score diagnostic that marks which days to do first.
+- **C2 exam map:** what each paper tests, a skill-score diagnostic that marks which days to do first, and the five writing formats side by side.
+- **How to study:** a daily routine, the 80/20 approach to vocabulary, and a table of Shakespeare's old grammar forms.
 
 ## Put it on your phone
 
